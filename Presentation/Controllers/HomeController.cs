@@ -1,3 +1,5 @@
+using Application.DTOs.UserSide;
+using Application.Services.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
 using System.Diagnostics;
@@ -6,23 +8,26 @@ namespace Presentation.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        #region Ctor
+        private readonly IUserInformationService _userInformationService;
+        public HomeController(IUserInformationService userInformationService)
         {
-            _logger = logger;
+            _userInformationService = userInformationService;
         }
+        #endregion
 
-        public IActionResult Index()
+       // [HttpGet]
+        public IActionResult Index(ShowAllDto showAllDto)
         {
-            return View();
+          var user =  _userInformationService. GetUserInformation();
+            return View(user);
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+        //[HttpPost , ValidateAntiForgeryToken]
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
+     
  
     }
 }

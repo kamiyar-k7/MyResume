@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Application.DTOs.UserSide.ShowAllDto;
+
+@{
     Layout = "_Layout";
     ViewData["Title"] = "کامیار خدری / Kamyar Khedri ";
 }
@@ -10,7 +12,7 @@
     <!--mouse  follower-->
     <!--loader-->
     <div id="loader">
-        <span class="color">Kamyar</span>Khedri
+        <span class="color">kaka</span>
     </div>
     <!--loader-end-->
     <!--link-screen-->
@@ -63,7 +65,7 @@
         <!--Social Media Links end-->
         <div class="header-content">
             <div class="header-content-box">
-                <div class="firstline"><span class="color">Kamyar Khedri </span></div>
+                <div class="firstline"><span class="color">@Model.UserName </span></div>
                 <div class="secondline">
                     I'm a
                     <span class="txt-rotate color" data-period="1200" data-rotate='[ " Developer.", " Progrmmer.", " Freelancer." ]'></span>

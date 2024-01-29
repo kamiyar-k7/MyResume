@@ -1,10 +1,17 @@
+using Application.Services.Implements;
+using Application.Services.Intefaces;
 using Data.Dbcontext;
+using Data.Repositories;
+using Domain.IRepositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IUserInformationRepository ,  UserInformationRepository>();
+builder.Services.AddScoped<IUserInformationService , UserInformationService>();
 
 #region Dbcontext
 builder.Services.AddDbContext<ResumeDbContext>(
