@@ -1,5 +1,7 @@
 ﻿using Data.Dbcontext;
 using Domain.Entities._1Information;
+using Domain.Entities._1Information.Myservices;
+using Domain.Entities._1Information.Myskills;
 using Domain.IRepositories;
 using System;
 using System.Collections.Generic;
@@ -24,5 +26,9 @@ namespace Data.Repositories
             return _resumeDbContext.Information.FirstOrDefault();
         }
 
+        public List<Myskills> myskills()
+        {
+            return _resumeDbContext.myskills.ToList();
+        } 
     }
 }

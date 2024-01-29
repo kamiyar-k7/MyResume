@@ -16,18 +16,24 @@ namespace Presentation.Controllers
         }
         #endregion
 
-       // [HttpGet]
+        [HttpGet]
         public IActionResult Index(ShowAllDto showAllDto)
         {
-          var user =  _userInformationService. GetUserInformation();
+            var user = _userInformationService.GetUserInformation();
+            var skills = _userInformationService.myskills();
+
+           
+
             return View(user);
         }
-        //[HttpPost , ValidateAntiForgeryToken]
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-     
- 
+
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+
     }
 }
