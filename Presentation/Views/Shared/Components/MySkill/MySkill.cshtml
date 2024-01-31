@@ -1,0 +1,22 @@
+﻿@model List<Application.DTOs.UserSide.MySkillDto>
+
+
+    <div class="skills-content " style="text-align: center;">
+        @foreach (var item in Model)
+        {
+            <div class="skill-html skill">
+
+                <div class="skill-text">
+                    <div class="html">
+                        @item.SkillName
+                    </div>
+                </div>
+                <div class="html-prog wow prog">
+                    <div class="html-progress wow"  >@item.SkillValue%</div>
+                </div>
+
+                
+            </div>
+        }
+       
+    </div>

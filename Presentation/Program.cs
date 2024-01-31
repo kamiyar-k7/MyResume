@@ -22,6 +22,10 @@ builder.Services.AddScoped<IMyServicesService , MyServicesService>();
 builder.Services.AddScoped<IMySkillRepository , MySkillRepository>();
 builder.Services.AddScoped<IMySkillService , MySkillService>();
 
+//contact 
+builder.Services.AddScoped<IContactRepository , ContactRepository>();
+builder.Services.AddScoped<IContactService , ContactService>();
+
 #region Dbcontext
 builder.Services.AddDbContext<ResumeDbContext>(
     option => option.UseSqlServer

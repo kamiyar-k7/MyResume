@@ -1,11 +1,11 @@
 ﻿@model List<Application.DTOs.UserSide.MyServiceDto>
 
 <div class="services-content">
-    
-    <div class="service-one service wow">
 
-        @foreach (var item in Model)
-        {
+
+    @foreach (var item in Model)
+    {
+        <div class="service-one service wow">
             <div class="service-img">
                 <img src="images/coding.png" alt="service-one">
             </div>
@@ -13,26 +13,8 @@
                 <h2>@item.ServiceName</h2>
                 <p>@item.ServiceDescription</p>
             </div>
-        }
-     
-    </div>
-    <div class="service-two service wow">
-        <div class="service-img">
-            <img src="images/instagram.png" alt="service-two">
         </div>
-        <div class="service-description">
-            <h2>Social Media</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-        </div>
-    </div>
-    <div class="service-three service wow">
-        <div class="service-img">
-            <img src="images/bulb.png" alt="service-three">
-        </div>
-        <div class="service-description">
-            <h2>Creative Design</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-        </div>
-    </div>
+    }
+
+
 </div>
-        </div>

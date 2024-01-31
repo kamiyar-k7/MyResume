@@ -34,7 +34,7 @@
         <div class="navigation-links">
             <a href="#" data-text="HOME" id="home-link">HOME</a>
             <a href="#" data-text="ABOUT" id="about-link">ABOUT</a>
-            @* <a href="#" data-text="BLOG" id="blog-link">BLOG</a>
+          @*   <a href="#" data-text="BLOG" id="blog-link">BLOG</a>
             <a href="#" data-text="PORTFOLIO" id="portfolio-link">PORTFOLIO</a> *@
             <a href="#" data-text="CONTACT" id="contact-link">CONTACT</a>
         </div>
@@ -68,9 +68,8 @@
                 <div class="firstline"><span class="color">@Model.UserName </span></div>
                 <div class="secondline">
                     I'm a
-                    <span class="txt-rotate color" data-period="1200" data-rotate='[ "Programmer.","FreeLanceer.","WebDeveloper"]'></span>
+                    <span class="txt-rotate color" data-period="1200" data-rotate='[ " Web Developer.", " Programmer.", " Freelancer." ]'></span>
                     <span class="slash">|</span>
-
                 </div>
                 <div class="contact">
                     <a href="Mailto:#"><img src="images/mail.png" alt="email-pic" class="contactpic"></a><!--Your email Id write in place of "#"-->
@@ -185,87 +184,30 @@
             <!--services header end-->
             <!--services content-->
             @await Component.InvokeAsync("MyServices");
+
+        </div>
         <!--services content end-->
         <!--services end-->
         <div id="skills">
             <div class="skills-header">
                 My <span class="color"> Skills</span>
             </div>
-            <div class="skills-content " style="text-align: center;">
-                <div class="skill-html skill">
-                    <div class="skill-text">
-                        <div class="html">
-                            HTML/CSS
-                        </div>
-                    </div>
-                    <div class="html-prog wow prog">
-                        <div class="html-progress wow">95%</div>
-                    </div>
-                </div>
-                <div class="skill-html skill">
-                    <div class="skill-text">
-                        <div class="html">
-                            Javascript
-                        </div>
-                    </div>
-                    <div class="html-prog wow prog">
-                        <div class="js-progress wow">90%</div>
-                    </div>
-                </div>
-                <div class="skill-html skill">
-                    <div class="skill-text">
-                        <div class="html">
-                            Adobe Ps
-                        </div>
-                    </div>
-                    <div class="html-prog wow prog">
-                        <div class="adobe-progress wow">83%</div>
-                    </div>
-                </div>
-                <div class="skill-html skill">
-                    <div class="skill-text">
-                        <div class="html">
-                            PHP
-                        </div>
-                    </div>
-                    <div class="html-prog wow prog">
-                        <div class="php-progress wow">87%</div>
-                    </div>
-                </div>
-                <div class="skill-html skill">
-                    <div class="skill-text">
-                        <div class="html">
-                            JQuery
-                        </div>
-                    </div>
-                    <div class="html-prog wow prog">
-                        <div class="jquery-progress wow">94%</div>
-                    </div>
-                </div>
-                <div class="skill-html skill">
-                    <div class="skill-text">
-                        <div class="html">
-                            SEO
-                        </div>
-                    </div>
-                    <div class="html-prog wow prog">
-                        <div class="seo-progress wow">84%</div>
-                    </div>
-                </div>
-            </div>
+            @await Component.InvokeAsync("MySkill");
         </div>
         <!--copyright-section You Can Remove After Downloading-->
         <div class="footer">
             <div class="footer-text">
-                <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> Willy Wonkas
+                <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> @Model.UserName
             </div>
         </div>
         <!--copyright-section-->
     </div>
     <!--about end-->
     <!--portfolio-->
+   
     <!--portfolio end-->
     <!--blog-->
+    
     <!--blog end-->
     <!--contact-->
     <div id="contact">
@@ -306,20 +248,10 @@
         <div class="contact-content">
             <!--Contact form-->
             <div class="contact-form">
-                <div class="form-header">
-                    Message Me
-                </div>
-                <form id="myForm" action="#">
-                    <div class="input-line">
-                        <input id="name" type="text" placeholder="Name" class="input-name">
-                        <input id="email" type="email" placeholder="Email" class="input-name">
-                    </div>
-                    <input type="text" id="subject" placeholder="subject" class="input-subject">
-                    <textarea id="body" class="input-textarea" placeholder="message"></textarea>
-                    <button type="button" id="submit" value="send">Submit</button>
-                </form>
+               @await Component.InvokeAsync("Contact"); 
 
             </div>
+
             <!--Contact form-->
             <!--Contact information-->
             <div class="contact-info">
@@ -331,21 +263,21 @@
                         <img src="./images/icon-name.png" class="icon" alt="name-icon">
                         <div class="contact-info-icon-text">
                             <h6>Name</h6>
-                            <p>Arlo Brown</p>
+                            <p>@Model.UserName</p>
                         </div>
                     </div>
                     <div class="contect-info-content-line">
                         <img src="./images/icon-location.png" class="icon" alt="location-icon">
                         <div class="contact-info-icon-text">
                             <h6>Location</h6>
-                            <p>New York, USA</p>
+                            <p>@Model.Location</p>
                         </div>
                     </div>
                     <div class="contect-info-content-line">
                         <img src="./images/icon-phone.png" class="icon" alt="phone-icon">
                         <div class="contact-info-icon-text">
                             <h6>Call</h6>
-                            <p>+9865376531</p>
+                            <p>+98 @Model.MobilePhone</p>
                         </div>
                     </div>
 
@@ -353,7 +285,7 @@
                         <img src="./images/icon-email.png" class="icon" alt="email-icon">
                         <div class="contact-info-icon-text">
                             <h6>Email</h6>
-                            <p>Info@example.com</p>
+                            <p>@Model.Email</p>
                         </div>
                     </div>
                 </div>
@@ -363,7 +295,7 @@
         <!--copyright-section You Can Remove After Downloading-->
         <div class="footer">
             <div class="footer-text">
-                <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> Willy Wonkas
+                <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> @Model.UserName
             </div>
         </div>
         <!--copyright-section-->

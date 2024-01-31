@@ -10,24 +10,23 @@ namespace Presentation.Controllers
     {
         #region Ctor
         private readonly IUserInformationService _userInformationService;
-        public HomeController(IUserInformationService userInformationService)
+        private readonly IContactService _contactService;
+        public HomeController(IUserInformationService userInformationService , IContactService contactService)
         {
             _userInformationService = userInformationService;
+            _contactService = contactService;
         }
         #endregion
 
-       // [HttpGet]
+       [HttpGet]
         public IActionResult Index(ShowAllDto showAllDto)
         {
           var user =  _userInformationService. GetUserInformation();
             return View(user);
         }
+        
 
-        [HttpPost, ValidateAntiForgeryToken]
-        public IActionResult Index()
-        {
-            return View();
-        }
+      
 
 
     }

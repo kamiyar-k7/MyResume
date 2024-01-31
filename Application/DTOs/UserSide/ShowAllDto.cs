@@ -32,10 +32,10 @@ namespace Application.DTOs.UserSide
         //#endregion
 
         #region Contacts
-        public int SenderId { get; set; }
-        public string SenderName { get; set; }
-        public string SenderEmail { get; set; }
-        public string Message { get; set; }
+        //public int SenderId { get; set; }
+        //public string SenderName { get; set; }
+        //public string SenderEmail { get; set; }
+        //public string Message { get; set; }
         #endregion
 
     }
