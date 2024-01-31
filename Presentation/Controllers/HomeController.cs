@@ -22,12 +22,13 @@ namespace Presentation.Controllers
           var user =  _userInformationService. GetUserInformation();
             return View(user);
         }
-        //[HttpPost , ValidateAntiForgeryToken]
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-     
- 
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+
     }
 }

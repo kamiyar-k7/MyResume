@@ -12,7 +12,7 @@
     <!--mouse  follower-->
     <!--loader-->
     <div id="loader">
-        <span class="color">kaka</span>
+        <span class="color">@Model.UserName</span>
     </div>
     <!--loader-end-->
     <!--link-screen-->
@@ -68,8 +68,9 @@
                 <div class="firstline"><span class="color">@Model.UserName </span></div>
                 <div class="secondline">
                     I'm a
-                    <span class="txt-rotate color" data-period="1200" data-rotate='[ " Developer.", " Progrmmer.", " Freelancer." ]'></span>
+                    <span class="txt-rotate color" data-period="1200" data-rotate='[ "Programmer.","FreeLanceer.","WebDeveloper"]'></span>
                     <span class="slash">|</span>
+
                 </div>
                 <div class="contact">
                     <a href="Mailto:#"><img src="images/mail.png" alt="email-pic" class="contactpic"></a><!--Your email Id write in place of "#"-->
@@ -129,11 +130,11 @@
                     <!--about description-->
                     <span class="about-first-line">
                         I'm creative
-                        <span class="color">web developer</span>
-                        based in New York , USA
+                        <span class="color">@Model.TitleDescription</span>
+                        based in @Model.Location
                     </span>
                     <br>
-                    <span class="about-second-line"> With 20 years of experience as a professional Web developer, I have acquired the skills and knowledge necessary to make your project a success. I enjoy every step while working.</span>
+                    <span class="about-second-line"> @Model.Description</span>
                     <div class="cv">
                         <a href="#"><button>Download <span class="colors">CV</span></button></a>
                     </div>
@@ -183,36 +184,7 @@
             </div>
             <!--services header end-->
             <!--services content-->
-            <div class="services-content">
-                <div class="service-one service wow">
-                    <div class="service-img">
-                        <img src="images/coding.png" alt="service-one">
-                    </div>
-                    <div class="service-description">
-                        <h2>Web Designing</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-                    </div>
-                </div>
-                <div class="service-two service wow">
-                    <div class="service-img">
-                        <img src="images/instagram.png" alt="service-two">
-                    </div>
-                    <div class="service-description">
-                        <h2>Social Media</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-                    </div>
-                </div>
-                <div class="service-three service wow">
-                    <div class="service-img">
-                        <img src="images/bulb.png" alt="service-three">
-                    </div>
-                    <div class="service-description">
-                        <h2>Creative Design</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            @await Component.InvokeAsync("MyServices");
         <!--services content end-->
         <!--services end-->
         <div id="skills">
@@ -292,10 +264,8 @@
     </div>
     <!--about end-->
     <!--portfolio-->
-    
     <!--portfolio end-->
     <!--blog-->
-    
     <!--blog end-->
     <!--contact-->
     <div id="contact">

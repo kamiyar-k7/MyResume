@@ -11,13 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3Data", "3Data", "{2BB984AE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4Presentation", "4Presentation", "{4254FF75-A272-4A42-AC2F-99552578675E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{A35DC84C-3D92-4D27-AC95-E683989DEC0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A35DC84C-3D92-4D27-AC95-E683989DEC0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{49D4BCB2-B13D-4A63-8249-9B8CE38E2BFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{49D4BCB2-B13D-4A63-8249-9B8CE38E2BFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{C2846626-F354-42B5-901B-5F8A46380579}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{C2846626-F354-42B5-901B-5F8A46380579}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{7F10017F-DDA4-4BBA-9B68-BB7E0B9CC4B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{7F10017F-DDA4-4BBA-9B68-BB7E0B9CC4B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

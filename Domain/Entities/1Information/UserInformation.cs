@@ -8,7 +8,7 @@ public class UserInformation
     public string TitleDescription { get; set; }
     public string Description { get; set; }
     public string Email { get; set; }
-    public int MobilePhone { get; set; }
+    public long MobilePhone { get; set; }
     public string Location { get; set; }
     public string PicName { get; set; }
 

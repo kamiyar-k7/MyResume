@@ -19,16 +19,17 @@ namespace Application.DTOs.UserSide
         public string PicName { get; set; }
         #endregion
 
-        #region Service
-        public int ServiceId { get; set; }
-        public string ServiceName { get; set; }
-        public string ServiceDescription { get; set; }
-        #endregion
-        #region Skill
-        public int SkillId { get; set; }
-        public string SkillName { get; set; }
-        public int SkillValue { get; set; }
-        #endregion
+        //#region Service
+        //public int ServiceId { get; set; }
+        //public string ServiceName { get; set; }
+        //public string ServiceDescription { get; set; }
+        //#endregion
+
+        //#region Skill
+        //public int SkillId { get; set; }
+        //public string SkillName { get; set; }
+        //public int SkillValue { get; set; }
+        //#endregion
 
         #region Contacts
         public int SenderId { get; set; }

@@ -10,8 +10,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// user information
 builder.Services.AddScoped<IUserInformationRepository ,  UserInformationRepository>();
 builder.Services.AddScoped<IUserInformationService , UserInformationService>();
+
+//my serviec
+builder.Services.AddScoped<IMyserviceRepository , MyserviceRepository>();
+builder.Services.AddScoped<IMyServicesService , MyServicesService>();
+
+    // my skill
+builder.Services.AddScoped<IMySkillRepository , MySkillRepository>();
+builder.Services.AddScoped<IMySkillService , MySkillService>();
 
 #region Dbcontext
 builder.Services.AddDbContext<ResumeDbContext>(
