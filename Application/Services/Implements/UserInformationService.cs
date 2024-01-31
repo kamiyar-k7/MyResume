@@ -22,9 +22,9 @@ namespace Application.Services.Implements
         #endregion
 
 
-        public ShowAllDto  GetUserInformation()
+        public ShowAllDto GetUserInformation()
         {
-           
+
             var user = _UserInformationRepository.GetUserInformation();
             if (user == null)
             {
@@ -33,13 +33,13 @@ namespace Application.Services.Implements
             ShowAllDto dtomodel = new ShowAllDto()
             {
                 Id = user.Id,
-                    UserName = user.UserName,
-                    TitleDescription = user.TitleDescription,
-                    Description = user.Description,
-                    Email = user.Email,
-                    MobilePhone = user.MobilePhone,
-                    Location = user.Location,
-                   PicName = user.PicName,
+                UserName = user.UserName,
+                TitleDescription = user.TitleDescription,
+                Description = user.Description,
+                Email = user.Email,
+                MobilePhone = user.MobilePhone,
+                Location = user.Location,
+                PicName = user.PicName,
 
             };
             return dtomodel;
