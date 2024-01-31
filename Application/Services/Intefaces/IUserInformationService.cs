@@ -11,6 +11,5 @@ namespace Application.Services.Intefaces
     public interface IUserInformationService
     {
         ShowAllDto GetUserInformation();
-        List<ShowAllDto> myskills();
     }
 }
