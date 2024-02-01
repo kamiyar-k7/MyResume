@@ -8,6 +8,7 @@ namespace Presentation.Controllers
 {
     public class HomeController : Controller
     {
+        
         #region Ctor
         private readonly IUserInformationService _userInformationService;
         private readonly IContactService _contactService;

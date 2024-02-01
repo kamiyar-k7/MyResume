@@ -39,7 +39,7 @@ namespace Application.Services.Implements
                 Email = user.Email,
                 MobilePhone = user.MobilePhone,
                 Location = user.Location,
-                PicName = user.PicName,
+                PicName = user.Picture,
 
             };
             return dtomodel;

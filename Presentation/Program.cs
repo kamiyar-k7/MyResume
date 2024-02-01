@@ -11,20 +11,20 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // user information
-builder.Services.AddScoped<IUserInformationRepository ,  UserInformationRepository>();
-builder.Services.AddScoped<IUserInformationService , UserInformationService>();
+builder.Services.AddScoped<IUserInformationRepository, UserInformationRepository>();
+builder.Services.AddScoped<IUserInformationService, UserInformationService>();
 
 //my serviec
-builder.Services.AddScoped<IMyserviceRepository , MyserviceRepository>();
-builder.Services.AddScoped<IMyServicesService , MyServicesService>();
+builder.Services.AddScoped<IMyserviceRepository, MyserviceRepository>();
+builder.Services.AddScoped<IMyServicesService, MyServicesService>();
 
-    // my skill
-builder.Services.AddScoped<IMySkillRepository , MySkillRepository>();
-builder.Services.AddScoped<IMySkillService , MySkillService>();
+// my skill
+builder.Services.AddScoped<IMySkillRepository, MySkillRepository>();
+builder.Services.AddScoped<IMySkillService, MySkillService>();
 
 //contact 
-builder.Services.AddScoped<IContactRepository , ContactRepository>();
-builder.Services.AddScoped<IContactService , ContactService>();
+builder.Services.AddScoped<IContactRepository, ContactRepository>();
+builder.Services.AddScoped<IContactService, ContactService>();
 
 #region Dbcontext
 builder.Services.AddDbContext<ResumeDbContext>(
@@ -54,8 +54,30 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapControllerRoute(
+//      name: "areas",
+//      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+//    );
+//});
+
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+           name: "Areas",
+           pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+         );
+
+    endpoints.MapControllerRoute(
+        name: "Default",
+        pattern: "{controller=Home}/{action=Index}/{id?}"
+    );
+});
 
 app.Run();

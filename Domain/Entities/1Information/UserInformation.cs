@@ -10,8 +10,8 @@ public class UserInformation
     public string Email { get; set; }
     public long MobilePhone { get; set; }
     public string Location { get; set; }
-    public string PicName { get; set; }
-
+    public string Picture { get; set; }
+    public string IsAdmin { get; set; }
 
 
 
