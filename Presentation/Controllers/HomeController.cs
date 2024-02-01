@@ -11,22 +11,30 @@ namespace Presentation.Controllers
         #region Ctor
         private readonly IUserInformationService _userInformationService;
         private readonly IContactService _contactService;
-        public HomeController(IUserInformationService userInformationService , IContactService contactService)
+        public HomeController(IUserInformationService userInformationService, IContactService contactService)
         {
             _userInformationService = userInformationService;
             _contactService = contactService;
         }
         #endregion
 
-       [HttpGet]
-        public IActionResult Index(ShowAllDto showAllDto)
+        [HttpGet]
+        public IActionResult Index()
         {
-          var user =  _userInformationService. GetUserInformation();
+            var user = _userInformationService.GetUserInformation();
             return View(user);
         }
-        
 
-      
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index( ContactDtos contactDtos, CancellationToken cancellation)
+        {
+            
+            await _contactService.AddContactUsToDataBaseAsync(contactDtos, cancellation);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
 
 
     }

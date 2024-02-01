@@ -248,7 +248,8 @@
         <div class="contact-content">
             <!--Contact form-->
             <div class="contact-form">
-               @await Component.InvokeAsync("Contact"); 
+                <partial name="_contactPartial" model="Model.ContactDtos"> 
+              @*  @await Component.InvokeAsync("Contact");  *@
 
             </div>
 

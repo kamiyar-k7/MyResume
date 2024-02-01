@@ -17,7 +17,8 @@ namespace Presentation.ViewComponents
         }
         #endregion
 
-        public async Task<IViewComponentResult> InvokeAsync(MyServiceDto myServiceDto , CancellationToken cancellationToken)
+        
+        public async Task<IViewComponentResult> InvokeAsync( CancellationToken cancellationToken)
         {
             return View("MyServices", await _myServicesService.GetMyservicesAsync(cancellationToken));
         }

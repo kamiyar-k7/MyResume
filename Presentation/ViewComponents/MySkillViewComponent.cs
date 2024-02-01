@@ -15,7 +15,7 @@ namespace Presentation.ViewComponents
         }
         #endregion
 
-        public async Task<IViewComponentResult> InvokeAsync(MySkillDto mySkillDto , CancellationToken cancellationToken)
+        public async Task<IViewComponentResult> InvokeAsync( CancellationToken cancellationToken)
         {
             var skill = await _skillService.MySkillDtosAsync(cancellationToken);
             return View("MySkill", skill);

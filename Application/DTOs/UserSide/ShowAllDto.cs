@@ -36,7 +36,17 @@ namespace Application.DTOs.UserSide
         //public string SenderName { get; set; }
         //public string SenderEmail { get; set; }
         //public string Message { get; set; }
+
+       public ContactDtos ContactDtos { get; set; }
         #endregion
 
+    }
+    public class ContactDtos
+    {
+        public int SenderId { get; set; }
+        public string SenderName { get; set; }
+        public string SenderEmail { get; set; }
+        public string Subject { get; set; }
+        public string Message { get; set; }
     }
 }

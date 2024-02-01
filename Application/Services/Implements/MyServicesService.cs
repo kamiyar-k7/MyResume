@@ -1,5 +1,6 @@
 ﻿using Application.DTOs.UserSide;
 using Application.Services.Intefaces;
+using Domain.Entities._3Contact;
 using Domain.IRepositories;
 using System;
 using System.Collections.Generic;

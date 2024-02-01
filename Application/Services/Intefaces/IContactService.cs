@@ -9,6 +9,6 @@ namespace Application.Services.Intefaces
 {
     public interface IContactService
     {
-        Task AddContactUsToDataBaseAsync(ContactDto contactDto, CancellationToken cancellationToken);
+        Task AddContactUsToDataBaseAsync(ContactDtos contactDtos, CancellationToken cancellationToken);
     }
 }

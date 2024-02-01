@@ -20,7 +20,7 @@ namespace Application.Services.Implements
         }
         #endregion
         
-        public async Task AddContactUsToDataBaseAsync(ContactDto contactDto, CancellationToken cancellationToken)
+        public async Task AddContactUsToDataBaseAsync(ContactDtos contactDto, CancellationToken cancellationToken)
         {
 
             Contact contact = new Contact()
