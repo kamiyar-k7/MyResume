@@ -1,4 +1,4 @@
-﻿using Application.DTOs.UserSide;
+﻿using Application.DTOs;
 using Application.Services.Intefaces;
 using Domain.IRepositories;
 using System;

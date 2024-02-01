@@ -1,5 +1,4 @@
-﻿using Application.DTOs.UserSide;
-using Application.Services.Implements;
+﻿using Application.Services.Implements;
 using Application.Services.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 

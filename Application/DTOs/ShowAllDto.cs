@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.DTOs.UserSide
+namespace Application.DTOs
 {
     public class ShowAllDto
     {
@@ -37,7 +37,7 @@ namespace Application.DTOs.UserSide
         //public string SenderEmail { get; set; }
         //public string Message { get; set; }
 
-       public ContactDtos ContactDtos { get; set; }
+        public ContactDtos ContactDtos { get; set; }
         #endregion
 
     }
