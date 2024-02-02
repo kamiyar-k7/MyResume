@@ -30,15 +30,14 @@ namespace Presentation.Areas.Admin.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> EditUser(ShowAllDto showAllDto, CancellationToken cancellationToken)
         {
-            if (ModelState.IsValid)
-            {
+           
                 var res = await _userInformationService.EditUserDto(showAllDto, cancellationToken);
                 if (res)
                 {
                     return RedirectToAction(nameof(Details));
                 }
-
-            }
+            
+             
 
             return View(showAllDto);
 

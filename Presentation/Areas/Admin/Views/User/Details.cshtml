@@ -46,13 +46,18 @@
                         <label for="exampleInputLocation" class="form-label">Location</label>
                         <input type="text" placeholder="@Model.Location" class="form-control" id="exampleInputLocation" readonly>
                     </div>
+                    <div class="mb-3">
+                        <label for="exampleInputLocation" class="form-label" >Picture</label>
+                        <input type="text" asp-for="@Model.PicName" class="form-control" readonly>
+                    </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1" readonly checked>
                         <label class="form-check-label" for="exampleCheck1">Is Admin</label>
                     </div>
 
+                    <a class="btn btn-primary" asp-area="Admin" asp-controller="User" asp-action="EditUser" asp-route-Id="@Model.Id" role="button">Edit</a>
                     <a class="btn btn-primary" asp-area="Admin" asp-controller="Home" asp-action="Index" role="button">Return</a>
-
+                    
                 </div>
             </div>
         </div>

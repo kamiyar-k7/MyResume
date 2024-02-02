@@ -1,0 +1,59 @@
+﻿@model List< Application.DTOs.MySkillDto>;
+
+
+
+<div class="content">
+
+    <!--nav bar-->
+    <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+        <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+            <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+        </a>
+        <a href="#" class="sidebar-toggler flex-shrink-0">
+            <i class="fa fa-bars"></i>
+        </a>
+
+    </nav>
+    <!--nav bar end -->
+
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-6">
+                <div class="bg-secondary rounded h-100 p-4">
+                    <h6 class="mb-4">Hoverable Table</h6>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Skill Name</th>
+                                <th scope="col">Skill Value</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.SkillId</th>
+                                    <td>@item.SkillName</td>
+                                    <td>@item.SkillValue</td>
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="MySkills" asp-action="EditMySkills" type="button" class="btn btn-primary m-2">Edit</a>
+                                        
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+
+
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

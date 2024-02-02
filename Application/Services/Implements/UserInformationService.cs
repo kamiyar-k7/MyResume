@@ -31,6 +31,7 @@ namespace Application.Services.Implements
             {
                 return null;
             }
+
             ShowAllDto dtomodel = new ShowAllDto()
             {
                 Id = user.Id,
@@ -87,7 +88,7 @@ namespace Application.Services.Implements
             User.Location = model.Location;
             User.MobilePhone = model.MobilePhone;
             User.Picture = model.PicName;
-
+           // User.IsAdmin = true;
             #endregion
             _UserInformationRepository.Update(User);
             await _UserInformationRepository.Save();
