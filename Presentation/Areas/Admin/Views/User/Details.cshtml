@@ -10,49 +10,52 @@
         <a href="#" class="sidebar-toggler flex-shrink-0">
             <i class="fa fa-bars"></i>
         </a>
-        <form class="d-none d-md-flex ms-4">
-            <input class="form-control bg-dark border-0" type="search" placeholder="Search">
-        </form>
-        <div class="navbar-nav align-items-center ms-auto">
 
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                    <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                    <span class="d-none d-lg-inline-flex">John Doe</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                    <a href="#" class="dropdown-item">My Profile</a>
-                    <a href="#" class="dropdown-item">Settings</a>
-                    <a href="#" class="dropdown-item">Log Out</a>
-                </div>
-            </div>
-        </div>
     </nav>
     <!--nav bar end -->
-    <div class="row g-4">
-        <div class="col-sm-12 col-xl-6">
-            <div class="bg-secondary rounded h-100 p-4">
-                <h6 class="mb-4">Basic Form</h6>
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-6">
+                <div class="bg-secondary rounded h-100 p-4">
+                    <h6 class="mb-4">Details</h6>
 
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">
-                        We'll never share your email with anyone else.
+                    <div class="mb-3">
+                        <label for="exampleInputUserName" class="form-label">Username</label>
+                        <input type="text" placeholder="@Model.UserName" class="form-control" id="exampleInputUserName" aria-describedby="userNameHelp" readonly>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                    <div class="mb-3">
+                        <label for="exampleInputTitleDescription" class="form-label">Title Description</label>
+                        <input type="text" placeholder="@Model.TitleDescription" class="form-control" id="exampleInputTitleDescription" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputDescription" class="form-label">Description</label>
+                        <textarea class="form-control" placeholder="@Model.Description" id="exampleInputDescription" rows="3" readonly></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Email address</label>
+                        <input type="email" placeholder="@Model.Email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" readonly>
+                        <div id="emailHelp" class="form-text">
+                            We'll never share your email with anyone else.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputMobilePhone" class="form-label">Mobile Phone</label>
+                        <input type="tel" placeholder="@Model.MobilePhone" class="form-control" id="exampleInputMobilePhone" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputLocation" class="form-label">Location</label>
+                        <input type="text" placeholder="@Model.Location" class="form-control" id="exampleInputLocation" readonly>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" readonly checked>
+                        <label class="form-check-label" for="exampleCheck1">Is Admin</label>
+                    </div>
 
+                    <a class="btn btn-primary" asp-area="Admin" asp-controller="Home" asp-action="Index" role="button">Return</a>
+
+                </div>
             </div>
         </div>
     </div>
-</div>
 
+</div>

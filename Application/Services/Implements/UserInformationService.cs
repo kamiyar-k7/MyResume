@@ -4,6 +4,7 @@ using Domain.Entities._1Information;
 using Domain.IRepositories;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace Application.Services.Implements
 
         #endregion
 
-
+        #region General
         public ShowAllDto GetUserInformation()
         {
 
@@ -44,5 +45,58 @@ namespace Application.Services.Implements
             };
             return dtomodel;
         }
+        #endregion
+
+        #region Admin Side
+        public async Task<ShowAllDto> FillUserDto(int id, CancellationToken cancellation)
+        {
+            #region Get User By Id
+            var user = await _UserInformationRepository.GetUserById(id);
+            if (user == null) { return null; }
+            #endregion
+
+            #region Fill Dto
+            ShowAllDto model = new ShowAllDto()
+            {
+                Id = id,
+                UserName = user.UserName,
+                TitleDescription = user.TitleDescription,
+                Description = user.Description,
+                Location = user.Location,
+                Email = user.Email,
+                MobilePhone = user.MobilePhone,
+                PicName = user.Picture,
+            };
+
+            #endregion
+            return model;
+        }
+        public async Task<bool> EditUserDto(ShowAllDto model, CancellationToken cancellation)
+        {
+            #region Get User By Id
+            var User = await _UserInformationRepository.GetUserById(model.Id);
+            if (User == null) { return false; }
+            #endregion
+
+            #region Update
+
+            User.UserName = model.UserName;
+            User.TitleDescription = model.TitleDescription;
+            User.Description = model.Description;
+            User.Email = model.Email;
+            User.Location = model.Location;
+            User.MobilePhone = model.MobilePhone;
+            User.Picture = model.PicName;
+
+            #endregion
+            _UserInformationRepository.Update(User);
+            await _UserInformationRepository.Save();
+            return true;
+
+        }
+
+        #endregion
+
+
     }
 }

@@ -411,8 +411,8 @@ body{
     50%{ transform : translateX(0%) }
     100%{ transform : translateX(100%) }
 }
-.color{
-    color: #c70039;
+.color {
+    color: #035aa6;
     transition: all .4s ease;
 }
 #about{
@@ -1076,7 +1076,7 @@ padding-bottom: 40px;
     align-items: center;
     justify-content: center;
 }
-.contact-info{
+.contact-info {
     width: 40%;
     height: 500px;
     background: url(../images/rco.jpg);

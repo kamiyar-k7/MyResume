@@ -2,9 +2,9 @@
 
 namespace Presentation.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AdminBAseController
     {
-        [Area("Admin")]
+        
         public IActionResult Index()
         {
             return View();

@@ -9,6 +9,12 @@ namespace Domain.IRepositories
 {
     public interface IUserInformationRepository
     {
-        UserInformation  GetUserInformation();
+        #region General
+        UserInformation GetUserInformation();
+         Task<UserInformation?> GetUserById(int id);
+        void Update(UserInformation userInformation);
+        Task Save();
+        #endregion
+
     }
 }

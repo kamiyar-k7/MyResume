@@ -11,5 +11,11 @@ namespace Application.Services.Intefaces
     public interface IUserInformationService
     {
         ShowAllDto GetUserInformation();
+
+        #region Admin side
+        Task<ShowAllDto> FillUserDto(int id, CancellationToken cancellation);
+        Task<bool> EditUserDto(ShowAllDto model, CancellationToken cancellation);
+   
+        #endregion
     }
 }

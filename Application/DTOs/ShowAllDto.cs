@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace Application.DTOs
         public long MobilePhone { get; set; }
         public string Location { get; set; }
         public string PicName { get; set; }
+        public IFormFile? pictureFile { get; set; }
         #endregion
 
         //#region Service

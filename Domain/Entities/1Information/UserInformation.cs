@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.AspNetCore.Http;
+
 namespace Domain.Entities._1Information;
 
 public class UserInformation

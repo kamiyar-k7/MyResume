@@ -1,0 +1,66 @@
+﻿@model Application.DTOs.ShowAllDto;
+
+<div class="content">
+
+    <!--nav bar-->
+    <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+        <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+            <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+        </a>
+        <a href="#" class="sidebar-toggler flex-shrink-0">
+            <i class="fa fa-bars"></i>
+        </a>
+
+    </nav>
+    <!--nav bar end-->
+
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-6">
+                <div class="bg-secondary rounded h-100 p-4">
+                    <h6 class="mb-4">Edit User</h6>
+                    <form asp-area="Admin" asp-controller="User" asp-action="EditUser" method="post">
+                        <div class="mb-3">
+                            <label for="exampleInputUserName" class="form-label">Username</label>
+                            <input type="text" asp-for="@Model.UserName" class="form-control" id="exampleInputUserName" aria-describedby="userNameHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputTitleDescription" class="form-label">Title Description</label>
+                            <input type="text" asp-for="@Model.TitleDescription" class="form-control" id="exampleInputTitleDescription">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputDescription" class="form-label">Description</label>
+                            <textarea class="form-control" asp-for="@Model.Description" id="exampleInputDescription" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail" class="form-label">Email address</label>
+                            <input type="email" asp-for="@Model.Email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">
+                                We'll never share your email with anyone else.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputMobilePhone" class="form-label">Mobile Phone</label>
+                            <input type="tel" asp-for="@Model.MobilePhone" class="form-control" id="exampleInputMobilePhone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputLocation" class="form-label">Location</label>
+                            <input type="text" asp-for="@Model.Location" class="form-control" id="exampleInputLocation">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+                            <label class="form-check-label" for="exampleCheck1">Is Admin</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <a class="btn btn-primary" asp-area="Admin" asp-controller="Home" asp-action="Index" role="button">Return</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
