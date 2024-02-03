@@ -1,4 +1,4 @@
-﻿@model List< Application.DTOs.MySkillDto>;
+﻿@model List<Application.DTOs.MySkillDto>;
 
 
 
@@ -24,7 +24,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Id</th>
+                                <th scope="col">SkillId</th>
                                 <th scope="col">Skill Name</th>
                                 <th scope="col">Skill Value</th>
 
@@ -39,7 +39,7 @@
                                     <td>@item.SkillName</td>
                                     <td>@item.SkillValue</td>
                                     <td>
-                                        <a asp-area="Admin" asp-controller="MySkills" asp-action="EditMySkills" type="button" class="btn btn-primary m-2">Edit</a>
+                                        <a asp-area="Admin" asp-controller="MySkills" asp-action="EditMySkills" asp-route-SkillId="@item.SkillId" type="button" class="btn btn-primary m-2">Edit</a>
                                         
                                     </td>
                                 </tr>

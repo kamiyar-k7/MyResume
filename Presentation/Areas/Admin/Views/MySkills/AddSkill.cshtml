@@ -14,18 +14,13 @@
 
     </nav>
     <!--nav bar end-->
-
-
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
             <div class="col-sm-12 col-xl-6">
                 <div class="bg-secondary rounded h-100 p-4">
-                    <h6 class="mb-4">Edit Skill</h6>
-                    <form asp-area="Admin" asp-controller="MySkills" asp-action="EditMySkills" method="post">
-                        <div class="form-floating mb-3">
-                            <input hidden class="form-control" id="floatingInput" asp-for="@Model.SkillId" readonly>
-                            <label for="floatingInput">Skill Id</label>
-                        </div>
+                    <h6 class="mb-4">Floating Label</h6>
+                    <form asp-area="Admin" asp-controller="MySkills" asp-action="AddSkill" method="post">
+                        
                         <div class="form-floating mb-3">
                             <input class="form-control" id="floatingInput" asp-for="SkillName">
                             <label for="floatingInput">Skill Name</label>
@@ -34,7 +29,7 @@
                             <input type="number" class="form-control" id="floatingNumber" asp-for="SkillValue">
                             <label for="floatingNumber">Number</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="submit" class="btn btn-primary">Add Skill </button>
                         <a class="btn btn-primary" asp-area="Admin" asp-controller="Home" asp-action="Index" role="button">Return</a>
                     </form>
                 </div>
@@ -42,20 +37,5 @@
         </div>
     </div>
 
+
 </div>
-
-
-<script>
-    document.getElementById('floatingNumber').addEventListener('input', function (event) {
-        // Get the input value
-        let inputValue = event.target.value;
-
-        // Ensure maximum length is 100 characters
-        if (inputValue.length > 100) {
-            // Trim the input value to 100 characters
-            inputValue = inputValue.slice(0, 100);
-            // Update the input value
-            event.target.value = inputValue;
-        }
-    });
-</script>

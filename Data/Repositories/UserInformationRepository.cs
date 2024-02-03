@@ -27,11 +27,7 @@ namespace Data.Repositories
             return _resumeDbContext.Information.OrderBy(x => x.Id).FirstOrDefault();
         }
 
-        public async Task<UserInformation?> GetUserById(int id)
-        {
-            return await _resumeDbContext.Information.FindAsync(id);
-                                
-        }
+      
 
 
         public void Update(UserInformation userInformation)
@@ -45,11 +41,11 @@ namespace Data.Repositories
         #endregion
 
         #region Admin Side
+        public async Task<UserInformation?> GetUserById(int id)
+        {
+            return await _resumeDbContext.Information.FindAsync(id);
 
-        //public async Task EditUser()
-        //{
-
-        //}
+        }
 
         #endregion
     }

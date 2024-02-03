@@ -412,7 +412,7 @@ body{
     100%{ transform : translateX(100%) }
 }
 .color {
-    color: #035aa6;
+    color: #c70039;
     transition: all .4s ease;
 }
 #about{
@@ -1079,7 +1079,7 @@ padding-bottom: 40px;
 .contact-info {
     width: 40%;
     height: 500px;
-    background: url(../images/rco.jpg);
+    background: url(/images/rco.jpg);
     background-position: center;
     background-size: cover;
     border-radius: 16px;

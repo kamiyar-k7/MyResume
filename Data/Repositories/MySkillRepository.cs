@@ -2,11 +2,7 @@
 using Domain.Entities._1Information.Myskills;
 using Domain.IRepositories;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Data.Repositories
 {
@@ -20,10 +16,38 @@ namespace Data.Repositories
         }
         #endregion
 
+        #region General
         public async Task<List<Myskills>> GetMyskillsAsync(CancellationToken cancellationToken)
         {
-            return await _context.myskills.ToListAsync(cancellationToken); 
+            return await _context.myskills.ToListAsync(cancellationToken);
         }
+
+        public async Task SaveChanges()
+        {
+            await _context.SaveChangesAsync();
+        }
+
+        public void Update(Myskills myskills)
+        {
+            _context.myskills.Update(myskills);
+        }
+        #endregion
+
+        #region Admin Side
+
+        public async Task<Myskills?> GetSkillById(int SkillId)
+        {
+            return await _context.myskills.FindAsync(SkillId);
+        }
+
+        public async Task AddSkillToDatabase(Myskills myskills)
+        {
+            await _context.myskills.AddAsync(myskills);
+        }
+        #endregion
+
+
+
 
     }
 }
