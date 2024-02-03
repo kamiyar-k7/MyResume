@@ -1,4 +1,5 @@
 ﻿using Application.DTOs;
+using Domain.Entities._1Information.Myskills;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,13 @@ namespace Application.Services.Intefaces
         #region general
         Task<List<MySkillDto>> MySkillDtosAsync(CancellationToken cancellationToken);
         #endregion
+
         #region Admin side
         Task<MySkillDto> FillSkillDtoAsync(int SkillId);
         Task<bool> EditSkillDto(MySkillDto model);
         Task AddSkill(MySkillDto model);
+        Task<bool> DeleteSkill(int id);
+        
         #endregion
 
     }

@@ -1,5 +1,6 @@
 ﻿using Application.DTOs;
 using Application.Services.Intefaces;
+using Domain.Entities._1Information.Myskills;
 using Microsoft.AspNetCore.Http.Metadata;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
@@ -67,5 +68,21 @@ namespace Presentation.Areas.Admin.Controllers
 
         #endregion
 
+        #region Delete Skill
+      
+       
+        public async Task<IActionResult> DeleteSkill(int SkillId)
+        {
+            
+               var res =  await _Skills.DeleteSkill(SkillId);
+                if (res)
+                {
+                    return RedirectToAction(nameof(ListOfSkills));
+                }
+        
+            return RedirectToAction(nameof(ListOfSkills));
+
+        }
+        #endregion
     }
 }

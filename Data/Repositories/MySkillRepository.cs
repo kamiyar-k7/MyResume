@@ -44,6 +44,12 @@ namespace Data.Repositories
         {
             await _context.myskills.AddAsync(myskills);
         }
+
+        public async Task DeleteSkill(Myskills myskills)
+        {
+             _context.myskills.Remove(myskills);
+
+        }
         #endregion
 
 

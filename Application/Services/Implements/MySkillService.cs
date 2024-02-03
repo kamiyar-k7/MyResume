@@ -47,6 +47,15 @@ namespace Application.Services.Implements
 
         #region Admin side
 
+        #region Get Skill by id 
+
+        //public async Task GetSkillByID(int SkillId)
+        //{
+        //    await _skillRepository.GetSkillById(SkillId);
+
+        //}
+        #endregion
+
         #region Edit skill 
         public async Task<MySkillDto> FillSkillDtoAsync(int SkillId)
         {
@@ -54,6 +63,7 @@ namespace Application.Services.Implements
             #region Get skill by id 
 
             var skill = await _skillRepository.GetSkillById(SkillId);
+            // var skill = await GetSkillByID(SkillId);
             if (skill == null) { return null; }
 
 
@@ -81,6 +91,7 @@ namespace Application.Services.Implements
 
             #region Get skil by id 
             var user = await _skillRepository.GetSkillById(model.SkillId);
+            //    var user =  GetSkillByID(model.SkillId);
             if (user == null) { return false; }
 
             #endregion
@@ -109,7 +120,7 @@ namespace Application.Services.Implements
 
             Myskills myskills = new Myskills()
             {
-              //  SkillId = model.SkillId,
+                //  SkillId = model.SkillId,
                 SkillName = model.SkillName,
                 SkillValue = model.SkillValue,
             };
@@ -118,6 +129,29 @@ namespace Application.Services.Implements
             await _skillRepository.SaveChanges();
         }
         #endregion
+
+        #region Delete Skill 
+
+        public async Task<bool> DeleteSkill(int id)
+        {
+
+            #region get user by id 
+
+            var user = await _skillRepository.GetSkillById(id);
+            if (user == null) { return false; }
+
+            #endregion
+
+            await _skillRepository.DeleteSkill(user);
+            await _skillRepository.SaveChanges();
+
+            return true;
+
+        }
+
+        #endregion
+
+
         #endregion
     }
 }

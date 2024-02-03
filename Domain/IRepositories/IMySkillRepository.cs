@@ -20,6 +20,7 @@ namespace Domain.IRepositories
         #region Admin side
         Task<Myskills?> GetSkillById(int SkillId);
         Task AddSkillToDatabase(Myskills myskills);
+        Task DeleteSkill(Myskills myskills);
         #endregion
 
 

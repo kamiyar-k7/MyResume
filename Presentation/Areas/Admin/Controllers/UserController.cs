@@ -1,6 +1,7 @@
 ﻿using Application.DTOs;
 using Application.Services.Intefaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 namespace Presentation.Areas.Admin.Controllers
 {
@@ -34,6 +35,7 @@ namespace Presentation.Areas.Admin.Controllers
             var res = await _userInformationService.EditUserDto(showAllDto, cancellationToken);
             if (res)
             {
+                
                 return RedirectToAction(nameof(Details));
             }
 

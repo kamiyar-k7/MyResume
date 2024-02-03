@@ -39,9 +39,27 @@
                                     <td>@item.SkillName</td>
                                     <td>@item.SkillValue</td>
                                     <td>
-                                        <a asp-area="Admin" asp-controller="MySkills" asp-action="EditMySkills" asp-route-SkillId="@item.SkillId" type="button" class="btn btn-primary m-2">Edit</a>
-                                        
+                                        <a type="button"
+                                           asp-area="Admin"
+                                           asp-controller="MySkills"
+                                           asp-action="EditMySkills"
+                                           asp-route-SkillId="@item.SkillId"
+                                           class="btn btn-warning m-2">
+                                            Edit
+                                        </a>
                                     </td>
+                                    <td>
+
+                                        <a type="button" asp-area="Admin" asp-controller="MySkills" asp-action="DeleteSkill" asp-route-SkillId="@item.SkillId" class="btn btn-danger m-2" onclick="return confirm('Are you sure you want to delete this skill? This action cannot be undone.')">
+                                            Delete
+                                        </a>
+                                       
+
+                                    </td>
+                                    
+
+
+                                  
                                 </tr>
                             }
 
