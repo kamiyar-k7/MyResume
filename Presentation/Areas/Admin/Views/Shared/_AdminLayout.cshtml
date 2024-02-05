@@ -69,8 +69,8 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-light fa-laptop me-2"></i>My Services</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href=" /Admin/button.html" class="dropdown-item">Details</a>
-                            <a href=" /Admin/typography.html" class="dropdown-item">Edit</a>
+                            <a asp-area="Admin" asp-controller="MyServices" asp-action="ListOfServices" class="dropdown-item">Details</a>
+                            <a asp-area="Admin" asp-controller="MyServices" asp-action="AddService" class="dropdown-item">Add Service</a>
 
                         </div>
                     </div>

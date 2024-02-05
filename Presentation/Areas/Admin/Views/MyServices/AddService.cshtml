@@ -1,0 +1,48 @@
+﻿@model Application.DTOs.MyServiceDto;
+
+
+
+<div class="content">
+
+    <!--nav bar-->
+    <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+        <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+            <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+        </a>
+        <a href="#" class="sidebar-toggler flex-shrink-0">
+            <i class="fa fa-bars"></i>
+        </a>
+
+    </nav>
+    <!--nav bar end -->
+
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-6">
+                <form asp-area="Admin" asp-controller="MyServices" asp-action="AddService" method="post">
+
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h6 class="mb-4">Add  Service</h6>
+                       
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" asp-for="@Model.ServiceName">
+                            <label for="floatingInput">Service Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Leave a Description here" asp-for="@Model.ServiceDescription" style="height: 150px;"></textarea>
+                            <label for="floatingTextarea">Description</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" asp-for="@Model.ServicePicture">
+                            <label for="floatingInput">pic Name</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Service</button>
+                        <a class="btn btn-primary" asp-area="Admin" asp-controller="MyServices" asp-action="ListOfServices" role="button">Return</a>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

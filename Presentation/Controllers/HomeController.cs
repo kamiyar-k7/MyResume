@@ -29,9 +29,12 @@ namespace Presentation.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Index( ContactDtos contactDtos, CancellationToken cancellation)
         {
-            
-            await _contactService.AddContactUsToDataBaseAsync(contactDtos, cancellation);
-            return RedirectToAction(nameof(Index));
+            if(ModelState.IsValid)
+            {
+                await _contactService.AddContactUsToDataBaseAsync(contactDtos, cancellation);
+                return RedirectToAction(nameof(Index));
+            }
+           return RedirectToAction(nameof(Index));
         }
 
 

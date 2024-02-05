@@ -10,5 +10,9 @@ namespace Application.Services.Intefaces
     public interface IMyServicesService
     {
         Task<List<MyServiceDto>> GetMyservicesAsync(CancellationToken cancellationToken);
+        Task<MyServiceDto> FillMyServiceDto(int ServiceId);
+        Task<bool> UpdateMyService(MyServiceDto model);
+        Task AddService(MyServiceDto model);
+        Task<bool> DeleteMyService(int ServiceId);
     }
 }

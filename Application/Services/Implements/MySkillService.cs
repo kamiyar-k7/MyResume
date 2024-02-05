@@ -120,7 +120,7 @@ namespace Application.Services.Implements
 
             Myskills myskills = new Myskills()
             {
-                //  SkillId = model.SkillId,
+               
                 SkillName = model.SkillName,
                 SkillValue = model.SkillValue,
             };

@@ -10,5 +10,12 @@ namespace Domain.IRepositories
     public interface IMyserviceRepository
     {
         Task<List<Myservices>> GetMyservicesAsync(CancellationToken cancellationToken);
+
+        Task SaveChanges();
+
+        void Update(Myservices myservices);
+        Myservices GetMyserviceById(int ServiceId);
+        void Delete(Myservices myservices);
+        Task AddService(Myservices service);
     }
 }
