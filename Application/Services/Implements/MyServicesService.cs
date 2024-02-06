@@ -1,4 +1,5 @@
 ﻿using Application.DTOs;
+using Application.NAmeGenerator;
 using Application.Services.Intefaces;
 using Domain.Entities._1Information.Myservices;
 using Domain.Entities._3Contact;
@@ -80,6 +81,18 @@ namespace Application.Services.Implements
 
             user.ServiceName = model.ServiceName;
             user.ServiceDescription = model.ServiceDescription;
+            // picture 
+            if (model.pictureFile != null)
+            {
+                //Save New Image
+                model.ServicePicture = NameGenerator.GenerateUniqCode() + Path.GetExtension(model.pictureFile.FileName);
+
+                string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/ServiceImages", model.ServicePicture);
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    model.pictureFile.CopyTo(stream);
+                }
+            }
             user.ServicePicture = model.ServicePicture;
 
             #endregion
@@ -93,11 +106,29 @@ namespace Application.Services.Implements
         #region Add Service
         public async Task AddService(MyServiceDto model)
         {
+
+
+            // picture 
+            if (model.pictureFile != null)
+            {
+                //Save New Image
+                model.ServicePicture = NameGenerator.GenerateUniqCode() + Path.GetExtension(model.pictureFile.FileName);
+
+                string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/ServiceImages", model.ServicePicture);
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    model.pictureFile.CopyTo(stream);
+                }
+            }
+
             Myservices myService = new Myservices()
             {
                 ServiceName = model.ServiceName,
                 ServiceDescription = model.ServiceDescription,
+
                 ServicePicture = model.ServicePicture,
+
+
             };
 
             await _MyserviceRepository.AddService(myService);

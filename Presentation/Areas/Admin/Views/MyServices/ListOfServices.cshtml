@@ -22,7 +22,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Service</th>
+                            <th scope="col">Service ID</th>
                             <th scope="col">Service Name</th>
                             <th scope="col">Service Description</th>
                             <th scope="col">Service Picture</th>
@@ -37,7 +37,16 @@
                                 <th scope="row">@item.ServiceId</th>
                                 <td>@item.ServiceName</td>
                                 <td>@item.ServiceDescription</td>
-                                <td>@item.ServicePicture</td>
+                                <td>
+                                    @if (string.IsNullOrEmpty(item.ServicePicture))
+                                    {
+                                        <img id="preview" src="~/images/coding.png" alt="Image Preview" style="max-width: 100%; max-height: 300px; ">
+                                    }
+                                    else
+                                    {
+                                        <img id="preview" src="~/images/ServiceImages/@item.ServicePicture" alt="Image Preview" style="max-width: 100%; max-height: 300px; ">
+                                    }
+                                </td>
                                 <td>
                                     <a type="button"
                                        asp-area="Admin"
