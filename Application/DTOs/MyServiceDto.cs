@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,6 @@ namespace Application.DTOs
         public string ServiceName { get; set; }
         public string ServiceDescription { get; set; }
         public string? ServicePicture { get; set; }
+        public IFormFile? pictureFile { get; set; }
     }
 }

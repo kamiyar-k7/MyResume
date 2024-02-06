@@ -1,6 +1,7 @@
 ﻿using Data.Dbcontext;
 using Domain.Entities._3Contact;
 using Domain.IRepositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,11 +20,22 @@ namespace Data.Repositories
             _Context = resumeDbContext;
                 
         }
-          #endregion
+        #endregion
+        #region General
         public async Task AddContactUsToDataBaseAsync(Contact contact, CancellationToken cancellationToken)
         {
-            await _Context.contacts.AddAsync(contact , cancellationToken);
-            await _Context.SaveChangesAsync();  
+            await _Context.contacts.AddAsync(contact, cancellationToken);
+            await _Context.SaveChangesAsync();
         }
+        #endregion
+
+
+        #region Admin side
+
+        public async Task<List<Contact>> GetListOfMessages()
+        {
+            return await _Context.contacts.OrderByDescending(x => x.SenderId).ToListAsync();
+        }
+        #endregion
     }
 }

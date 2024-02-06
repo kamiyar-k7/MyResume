@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Areas.Admin.Controllers
 {
-    public class MyServicesController : AdminBAseController
+    public class MyServicesController : AdminBaseController
     {
 
         #region Ctor

@@ -29,6 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="/Admin/css/style.css" rel="stylesheet">
+
+   
 </head>
 
 <body>
@@ -57,7 +59,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>User Information</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -83,8 +85,7 @@
                         </div>
                     </div>
 
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Contacts</a>
-
+                    <a asp-area="Admin" asp-controller="Contact" asp-action="ShowMessages" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Contact</a>
 
                 </div>
             </nav>
@@ -112,6 +113,7 @@
 
     <!-- Template Javascript -->
     <script src=" /Admin/js/main.js"></script>
+    
 </body>
 
 </html>

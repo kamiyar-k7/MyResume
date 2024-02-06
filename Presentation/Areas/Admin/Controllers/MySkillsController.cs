@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 
 namespace Presentation.Areas.Admin.Controllers
 {
-    public class MySkillsController : AdminBAseController
+    public class MySkillsController : AdminBaseController
     {
         #region Ctor
         private readonly IMySkillService _Skills;

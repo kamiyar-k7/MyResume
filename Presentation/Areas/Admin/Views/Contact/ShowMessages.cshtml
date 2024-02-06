@@ -1,0 +1,61 @@
+﻿@model List<Application.DTOs.AdminSide.AdminSideContactDto>
+
+
+
+<div class="content">
+
+    <!--nav bar-->
+    <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+        <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+            <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+        </a>
+        <a href="#" class="sidebar-toggler flex-shrink-0">
+            <i class="fa fa-bars"></i>
+        </a>
+
+    </nav>
+
+
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h6 class="mb-4">Message Id : "@item.SenderId"</h6>
+
+
+                        <div class="form-floating mb-3">
+                            <input type="text" readonly class="form-control" id="floatingInput" asp-for="@item.SenderName">
+                            <label for="floatingInput">Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" readonly class="form-control" id="floatingInput" asp-for="@item.SenderEmail">
+                            <label for="floatingInput">Email</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" readonly class="form-control" id="floatingInput" asp-for="@item.Subject">
+                            <label for="floatingInput">Subject</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea readonly class="form-control" placeholder="Leave a Description here" asp-for="@item.Message" style="height: 150px;"></textarea>
+                            <label for="floatingInput">Message</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="datetime-local" class="form-control" id="dateTimeInput"asp-for="@item.DateTime" readonly>
+                            <label for="dateTimeInput">Date and Time</label>
+                        </div>
+                    </div>
+
+                </div>
+            }
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="btn btn-primary" type="submit" id="submit">Return</a>
+
+
+        </div>
+    </div>
+</div>
+

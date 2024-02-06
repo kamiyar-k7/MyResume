@@ -1,6 +1,6 @@
 ﻿@model Application.DTOs.ShowAllDto;
 
-<div class="content">
+<section class="content">
 
     <!--nav bar-->
     <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
@@ -14,7 +14,7 @@
     </nav>
     <!--nav bar end -->
     <div class="container-fluid pt-4 px-4">
-        <div class="row g-4">
+        <div class="row g-4 mb-4">
             <div class="col-sm-12 col-xl-6">
                 <div class="bg-secondary rounded h-100 p-4">
                     <h6 class="mb-4">Details</h6>
@@ -46,10 +46,7 @@
                         <label for="exampleInputLocation" class="form-label">Location</label>
                         <input type="text" placeholder="@Model.Location" class="form-control" id="exampleInputLocation" readonly>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputLocation" class="form-label" >Picture</label>
-                        <input type="text" asp-for="@Model.PicName" class="form-control" readonly>
-                    </div>
+
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1" readonly checked>
                         <label class="form-check-label" for="exampleCheck1">Is Admin</label>
@@ -57,10 +54,53 @@
 
                     <a class="btn btn-primary" asp-area="Admin" asp-controller="User" asp-action="EditUser" asp-route-Id="@Model.Id" role="button">Edit</a>
                     <a class="btn btn-primary" asp-area="Admin" asp-controller="Home" asp-action="Index" role="button">Return</a>
-                    
+
+                </div>
+
+            </div>
+
+            <!--picture -->
+
+            <div class="col-sm-12 col-xl-6">
+                <div class="bg-secondary rounded h-100 p-4">
+                    <h6 class="mb-4">Picture Input</h6>
+                    <div id="imagePreview" class="mb-3">
+                        @if (string.IsNullOrEmpty(Model.PicName))
+                        {
+                            <img id="preview" src="~/images/UserAvatar/rickandmorty.jpg" alt="Image Preview" style="max-width: 100%; max-height: 300px; ">
+                        }
+                        else
+                        {
+                            <img id="preview" src="~/images/UserAvatar/@Model.PicName" alt="Image Preview" style="max-width: 100%; max-height: 300px; ">
+                        }
+                    </div>
+                   
                 </div>
             </div>
+          
+            <!--Pictire -->
         </div>
+    
     </div>
+</section>
 
-</div>
+
+
+<!-- picyure script -->
+    <script>
+        function previewImage(event) {
+            const input = event.target;
+            const preview = document.getElementById('preview');
+            const file = input.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                preview.src = reader.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    </script>
+<!-- picyure script -->
+    
+

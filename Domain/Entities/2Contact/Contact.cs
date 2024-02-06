@@ -15,6 +15,7 @@ namespace Domain.Entities._3Contact
         public string SenderEmail { get; set; }
         public string Subject { get; set; }
         public string Message { get; set; }
+        public DateTime DateTime { get; set; } = DateTime.UtcNow;
 
     }
 }

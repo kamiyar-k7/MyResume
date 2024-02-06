@@ -11,8 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\AdminSide\" />
     <Folder Include="DTOs\UserSide\" />
   </ItemGroup>
+
+
 
 </Project>

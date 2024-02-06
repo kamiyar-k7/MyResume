@@ -3,7 +3,7 @@
 namespace Presentation.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class AdminBAseController : Controller
+    public class AdminBaseController : Controller
     {
       
     }

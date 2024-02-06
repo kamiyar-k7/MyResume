@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 namespace Presentation.Areas.Admin.Controllers
 {
-    public class UserController : AdminBAseController
+    public class UserController : AdminBaseController
     {
         #region Ctor
         private readonly IUserInformationService _userInformationService;

@@ -6,8 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-
 using System.Threading.Tasks;
+using Application.NAmeGenerator;
 
 namespace Application.Services.Implements
 {
@@ -87,11 +87,29 @@ namespace Application.Services.Implements
             User.Email = model.Email;
             User.Location = model.Location;
             User.MobilePhone = model.MobilePhone;
-            User.Picture = model.PicName;
-           // User.IsAdmin = true;
+            // User.IsAdmin = true;
+
+            // save new image 
+
+            if (model.pictureFile != null)
+            {
+                //Save New Image
+                User.Picture = NameGenerator.GenerateUniqCode() + Path.GetExtension(model.pictureFile.FileName);
+
+                string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/UserAvatar", User.Picture);
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    model.pictureFile.CopyTo(stream);
+                }
+            }
+
+           
+           
             #endregion
+
             _UserInformationRepository.Update(User);
             await _UserInformationRepository.Save();
+
             return true;
 
         }

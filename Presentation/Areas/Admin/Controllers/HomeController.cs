@@ -2,7 +2,7 @@
 
 namespace Presentation.Areas.Admin.Controllers
 {
-    public class HomeController : AdminBAseController
+    public class HomeController : AdminBaseController
     {
         
         public IActionResult Index()

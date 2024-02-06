@@ -31,10 +31,15 @@ namespace Presentation.Controllers
         {
             if(ModelState.IsValid)
             {
+                // SUCCSESS 
                 await _contactService.AddContactUsToDataBaseAsync(contactDtos, cancellation);
+                TempData["SuccessMessage"] = "Your message has been successfully sent!";
                 return RedirectToAction(nameof(Index));
             }
-           return RedirectToAction(nameof(Index));
+            TempData["ErrorMessage"] = "Failed to send the message. Please check your input.";
+            return RedirectToAction(nameof(Index));
+
+
         }
 
 
