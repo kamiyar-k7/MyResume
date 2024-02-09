@@ -27,6 +27,10 @@ namespace Data.Repositories
             await _Context.contacts.AddAsync(contact, cancellationToken);
             await _Context.SaveChangesAsync();
         }
+        public async Task SaveChanges()
+        {
+            await _Context.SaveChangesAsync();
+        }
         #endregion
 
 
@@ -35,6 +39,14 @@ namespace Data.Repositories
         public async Task<List<Contact>> GetListOfMessages()
         {
             return await _Context.contacts.OrderByDescending(x => x.SenderId).ToListAsync();
+        }
+        public async Task<Contact?> GetContactbyId(int id)
+        {
+            return await _Context.contacts.FindAsync(id);
+        }
+        public  void DeleteMessage(Contact contact)
+        {
+             _Context.contacts.Remove(contact);
         }
         #endregion
     }

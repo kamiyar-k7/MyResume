@@ -24,9 +24,10 @@
     <!--Main-Section-->
     <!--Navigator-fullscreen-->
     <div id="navigation-content">
-        <div class="logo">
-            <img src="images/willy wonka logo.png" alt="logo">
+        <div class="logo" >
+            <img src="images/K-logo.png" alt="logo">
         </div>
+       
         <div class="navigation-close">
             <span class="close-first"></span>
             <span class="close-second"></span>
@@ -43,7 +44,7 @@
     <!--Home Page-->
     <!--Menubar-->
     <div id="navigation-bar">
-        <img src="images/willy wonka logo.png" alt="logo">
+        <img src="images/K-logo.png" alt="logo">
         <div class="menubar">
             <span class="first-span"></span>
             <span class="second-span"></span>
@@ -55,17 +56,18 @@
     <div id="header">
         <div id="particles"></div>
         <!--Social Media Links-->
-        <div class="social-media-links">
-            <a href="#"><img src="images/instagram logo.png" class="social-media" alt="instagram-logo"></a><!--Your instagram homepage link inser in place of "#"-->
-            <a href="#"><img src="images/facebook logo.png" class="social-media" alt="facebook-logo"></a>
-            <a href="#"><img src="images/linkedin logo.png" class="social-media" alt="linkedin-logo"></a>
-            <a href="#"><img src="images/twitter logo.png" class="social-media" alt="twitter-logo"></a>
+        <div class="social-media social-media-links">
+            
+            <a href="#"><i class="social-media fa-brands fa-instagram"></i></a><!--Your instagram homepage link inser in place of "#"-->
+            <a href="#"><i class="social-media fa-brands fa-telegram"></i></a>
+            <a href="#"><i class="social-media fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="social-media fa-brands fa-github"></i></a>
 
         </div>
         <!--Social Media Links end-->
         <div class="header-content">
             <div class="header-content-box">
-                <div class="firstline"><span class="color">@Model.UserName </span></div>
+                <div class="firstline"><span class="color">@Model.UserName</span></div>
                 <div class="secondline">
                     I'm a
                     <span class="txt-rotate color" data-period="1200" data-rotate='[ " Web Developer.", "C# Programmer.", " Freelancer." ]'></span>
@@ -137,7 +139,7 @@
                 </div>
                 <!--about picture-->
                 <div class="about-img">
-                    <img src="~/images/FHpicture.jpg" alt="Your Image">
+                    <img src="~/images/UserAvatar/@Model.PicName" alt="Your Image">
                 </div>
             </div>
 
@@ -258,21 +260,21 @@
                 </div>
                 <div class="contact-info-content">
                     <div class="contect-info-content-line">
-                        <img src="./images/icon-name.png" class="icon" alt="name-icon">
+                        <i class="social-media fa-solid fa-user"></i>
                         <div class="contact-info-icon-text">
                             <h6>Name</h6>
                             <p>@Model.UserName</p>
                         </div>
                     </div>
                     <div class="contect-info-content-line">
-                        <img src="./images/icon-location.png" class="icon" alt="location-icon">
+                        <i class="social-media fa-solid fa-location-dot"></i>
                         <div class="contact-info-icon-text">
                             <h6>Location</h6>
                             <p>@Model.Location</p>
                         </div>
                     </div>
                     <div class="contect-info-content-line">
-                        <img src="./images/icon-phone.png" class="icon" alt="phone-icon">
+                        <i class="social-media fa-solid fa-phone"></i>
                         <div class="contact-info-icon-text">
                             <h6>Call</h6>
                             <p>+98 @Model.MobilePhone</p>
@@ -280,7 +282,7 @@
                     </div>
 
                     <div class="contect-info-content-line">
-                        <img src="./images/icon-email.png" class="icon" alt="email-icon">
+                        <i class="social-media fa-solid fa-envelope"></i>
                         <div class="contact-info-icon-text">
                             <h6>Email</h6>
                             <p>@Model.Email</p>

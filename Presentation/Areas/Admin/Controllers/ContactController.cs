@@ -13,13 +13,27 @@ namespace Presentation.Areas.Admin.Controllers
                 _contactService = contactService;
         }
         #endregion
+
+        #region Show mesages
         [HttpGet]
         public async Task<IActionResult> ShowMessages()
         {
-            
+
             var messages = await _contactService.ListOfMessages();
             return View(messages);
 
         }
+        #endregion
+
+        #region Delete message
+        [HttpGet]
+        public async Task<IActionResult> DeleteMessage(int SenderId)
+        {
+            await _contactService.DeleteMessage(SenderId);
+            return RedirectToAction(nameof(ShowMessages));
+        }
+        #endregion
+
+
     }
 }

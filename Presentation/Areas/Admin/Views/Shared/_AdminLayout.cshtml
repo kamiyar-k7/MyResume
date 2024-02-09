@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -30,7 +31,11 @@
     <!-- Template Stylesheet -->
     <link href="/Admin/css/style.css" rel="stylesheet">
 
-   
+    <!--font Awseome-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+
 </head>
 
 <body>
@@ -45,12 +50,12 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
-                <a href=" /Admin/index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>DarkPan</h3>
+                <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Admin Panel</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src=" /Admin/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <i class="social-media fa-solid fa-user-tie"></i>
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
@@ -61,23 +66,23 @@
                 <div class="navbar-nav w-100">
                     <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>User Information</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-solid fa-user me-2"></i>User Information</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a asp-area="Admin" asp-controller="User" asp-action="Details" class="dropdown-item">Details</a>
-                           
-
+                            
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-light fa-laptop me-2"></i>My Services</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-brands fa-servicestack me-2"></i>My Services</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a asp-area="Admin" asp-controller="MyServices" asp-action="ListOfServices" class="dropdown-item">Details</a>
                             <a asp-area="Admin" asp-controller="MyServices" asp-action="AddService" class="dropdown-item">Add Service</a>
 
                         </div>
                     </div>
+                    
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>My Skills</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-solid fa-s me-2"></i>My Skills</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a asp-area="Admin" asp-controller="MySkills" asp-action="ListOfSkills" class="dropdown-item">Details</a>
                             <a asp-area="Admin" asp-controller="MySkills" asp-action="AddSkill" class="dropdown-item">Add Skill</a>
@@ -85,8 +90,8 @@
                         </div>
                     </div>
 
-                    <a asp-area="Admin" asp-controller="Contact" asp-action="ShowMessages" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Contact</a>
-
+                    <a asp-area="Admin" asp-controller="Contact" asp-action="ShowMessages" class="nav-item nav-link"><i class="fa-solid fa-message me-2"></i>Contact</a>
+                    
                 </div>
             </nav>
         </div>

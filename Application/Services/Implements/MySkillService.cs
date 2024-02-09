@@ -47,14 +47,7 @@ namespace Application.Services.Implements
 
         #region Admin side
 
-        #region Get Skill by id 
-
-        //public async Task GetSkillByID(int SkillId)
-        //{
-        //    await _skillRepository.GetSkillById(SkillId);
-
-        //}
-        #endregion
+     
 
         #region Edit skill 
         public async Task<MySkillDto> FillSkillDtoAsync(int SkillId)

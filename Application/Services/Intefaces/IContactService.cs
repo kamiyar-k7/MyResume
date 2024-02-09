@@ -12,5 +12,6 @@ namespace Application.Services.Intefaces
     {
         Task AddContactUsToDataBaseAsync(ContactDtos contactDtos, CancellationToken cancellationToken);
          Task<List<AdminSideContactDto>> ListOfMessages();
+        Task<bool> DeleteMessage(int id);
     }
 }
