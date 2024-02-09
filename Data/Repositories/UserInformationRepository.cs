@@ -24,11 +24,10 @@ namespace Data.Repositories
 
         public UserInformation? GetUserInformation()
         {
-            return _resumeDbContext.Information.OrderBy(x => x.Id).FirstOrDefault();
+            return _resumeDbContext.Information.FirstOrDefault();
         }
 
-      
-
+        
 
         public void Update(UserInformation userInformation)
         {

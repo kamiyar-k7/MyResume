@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Http;
+using System.ComponentModel;
 
 namespace Domain.Entities._1Information;
 
@@ -7,6 +8,8 @@ public class UserInformation
 {
     public int Id { get; set; }
     public string UserName { get; set; }
+    public string Password { get; set; }
+
     public string TitleDescription { get; set; }
     public string Description { get; set; }
     public string Email { get; set; }
