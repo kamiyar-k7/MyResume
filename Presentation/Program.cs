@@ -3,6 +3,7 @@ using Application.Services.Intefaces;
 using Data.Dbcontext;
 using Data.Repositories;
 using Domain.IRepositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,6 +33,22 @@ builder.Services.AddDbContext<ResumeDbContext>(
     (builder.Configuration.GetConnectionString("ResumeDbContextConnectionString")));
 #endregion
 
+#region Cookies
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+})
+         // Add Cookie settings
+         .AddCookie(options =>
+         {
+             options.LoginPath = "/Account/Login";
+             options.LogoutPath = "/Logout";
+             options.ExpireTimeSpan = TimeSpan.FromDays(30);
+         });
+#endregion
 
 var app = builder.Build();
 

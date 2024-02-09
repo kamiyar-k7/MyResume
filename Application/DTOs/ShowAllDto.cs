@@ -12,6 +12,7 @@ namespace Application.DTOs
         #region Information
         public int Id { get; set; }
         public string UserName { get; set; }
+       
         public string TitleDescription { get; set; }
         public string Description { get; set; }
         public string Email { get; set; }

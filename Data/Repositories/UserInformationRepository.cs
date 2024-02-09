@@ -27,7 +27,17 @@ namespace Data.Repositories
             return _resumeDbContext.Information.FirstOrDefault();
         }
 
-        
+        #region Login 
+
+        public async Task<bool?> CheckAdmin(UserInformation userInformation)
+        {
+           var admin =  await _resumeDbContext.Information.FirstOrDefaultAsync(x => x.Id == userInformation.Id && x.Password == userInformation.Password);
+            if (admin == null) { return false; }
+            return true;
+
+        }
+
+        #endregion
 
         public void Update(UserInformation userInformation)
         {

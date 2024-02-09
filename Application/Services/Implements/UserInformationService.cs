@@ -46,6 +46,30 @@ namespace Application.Services.Implements
             };
             return dtomodel;
         }
+
+        #region Log in 
+
+        public async Task<bool> LogIn(AdminLoginDto model)
+        {
+            UserInformation userInformation = new UserInformation();
+
+
+            userInformation.Id = model.Id;
+            userInformation.Password = model.Password;
+
+            var admin = await _UserInformationRepository.CheckAdmin(userInformation);
+
+            if (admin == false) { return false; }
+
+
+            return true;
+
+
+
+        }
+
+        #endregion
+
         #endregion
 
 
@@ -104,8 +128,8 @@ namespace Application.Services.Implements
                 }
             }
 
-           
-           
+
+
             #endregion
 
             _UserInformationRepository.Update(User);
