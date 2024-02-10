@@ -92,8 +92,9 @@ namespace Application.Services.Implements
                 {
                     model.pictureFile.CopyTo(stream);
                 }
+                  user.ServicePicture = model.ServicePicture;
             }
-            user.ServicePicture = model.ServicePicture;
+          
 
             #endregion
             _MyserviceRepository.Update(user);

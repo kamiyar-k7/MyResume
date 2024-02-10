@@ -28,7 +28,7 @@ namespace Presentation.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> LogIn(AdminLoginDto model)
         {
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var admin = await _userInformationService.LogIn(model);
                 if (admin)
@@ -45,14 +45,17 @@ namespace Presentation.Controllers
                     var principal = new ClaimsPrincipal(claimIdentity);
 
                     var authProps = new AuthenticationProperties();
-                     authProps.IsPersistent = model.RememberMe;
+                    authProps.IsPersistent = model.RememberMe;
 
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProps);
-
+                    
                     return RedirectToAction("Index", "Home");
-                }
+                   
 
+                }
+              
             }
+            TempData["ErrorMessage"] = "Failed to log in. Please check your inputs.";
             return View();
         }
         #endregion

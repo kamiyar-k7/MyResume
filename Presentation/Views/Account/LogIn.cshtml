@@ -1,4 +1,4 @@
-﻿@model Application.DTOs.AdminLoginDto;
+﻿@model Application.DTOs.AdminLoginDto
 
 
 <!DOCTYPE html>
@@ -40,6 +40,12 @@
 
 
 
+@if (TempData.ContainsKey("ErrorMessage"))
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
 
 
 
@@ -68,7 +74,7 @@
 
                         <form asp-controller="Account" asp-action="LogIn" method="post">
                             <div class="d-flex align-items-center justify-content-between mb-3">
-                                <a href="#" class="">
+                                <a  class="">
                                     <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Admin</h3>
                                 </a>
                                 <h3>Sign In</h3>
@@ -84,14 +90,14 @@
                             </div>
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" asp-for="RememberMe">
+                                    <label class="form-check-label" for="exampleCheck1" >Remember Me</label>
                                 </div>
 
                             </div>
                             <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
                             <a asp-controller="Home" asp-action="Index" type="button" class="btn btn-primary py-3 w-100 mb-4">Back</a>
-                            <p class="text-center mb-0">Don't have an Account? <a href="">Of course you don't</a></p>
+                            <p class="text-center mb-0">Don't have an Account? Of course you don't</p>
                         </form>
                     </div>
                 </div>
@@ -123,3 +129,4 @@
 </body>
 
 </html>
+

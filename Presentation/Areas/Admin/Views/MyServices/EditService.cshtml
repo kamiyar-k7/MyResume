@@ -42,10 +42,6 @@
 
                     </div>
 
-
-
-
-
                 </div>
 
 
@@ -54,12 +50,14 @@
                 <div class="col-sm-12 col-xl-6">
                     <div class="bg-secondary rounded h-100 p-4">
 
-                        <div id="imagePreview" class="mb-3 text-center">
-
+                        @if (string.IsNullOrEmpty(Model.ServicePicture))
+                        {
                             <img id="preview" src="~/images/coding.png" alt="Image Preview" style="max-width: 100%; max-height: 300px; ">
-
-
-                        </div>
+                        }
+                        else
+                        {
+                            <img id="preview" src="~/images/ServiceImages/@Model.ServicePicture" alt="Image Preview" style="max-width: 100%; max-height: 300px; ">
+                        }
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Default file input example</label>
                             <input class="form-control bg-dark" asp-for="pictureFile" type="file" id="formFile" onchange="previewImage(event)">

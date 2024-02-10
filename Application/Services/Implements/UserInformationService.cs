@@ -140,7 +140,7 @@ namespace Application.Services.Implements
             User.Email = model.Email;
             User.Location = model.Location;
             User.MobilePhone = model.MobilePhone;
-             User.IsAdmin = true;
+           
 
             // save new image 
 

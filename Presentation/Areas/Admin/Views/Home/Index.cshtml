@@ -12,7 +12,7 @@
         <a href="#" class="sidebar-toggler flex-shrink-0">
             <i class="fa fa-bars"></i>
         </a>
-        
+
         <div class="navbar-nav align-items-center ms-auto">
 
             <div class="nav-item dropdown">
@@ -21,63 +21,40 @@
                     <span class="d-none d-lg-inline-flex">@Model.UserName</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                    <a asp-area="Admin" asp-controller="User" asp-action="Details" class="dropdown-item">My Profile</a> 
+                    <a asp-area="Admin" asp-controller="User" asp-action="Details" class="dropdown-item">My Profile</a>
                     <a asp-area="Admin" asp-controller="Home" asp-action="LogOut" class="dropdown-item">Log Out</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Sale & Revenue Start -->
+    <!--ssss-->
+
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-line fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Today Sale</p>
-                        <h6 class="mb-0">$1234</h6>
-                    </div>
+            <div>
+                <div class="bg-secondary rounded h-100 p-4">
+                    <h6 class="mb-4">Admin Info</h6>
+                    <div class="p-2 mb-2 bg-primary text-white">Is Authenticated : @User.Identity.IsAuthenticated</div>
+                    <div class="p-2 mb-2 bg-primary text-white">Your id : @User.Identity.Name</div>
+                    <div class="p-2 mb-2 bg-primary text-white">Authentication Type : @User.Identity.AuthenticationType</div>
+                    
+                 
                 </div>
+
+
             </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Total Sale</p>
-                        <h6 class="mb-0">$1234</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-area fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Today Revenue</p>
-                        <h6 class="mb-0">$1234</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Total Revenue</p>
-                        <h6 class="mb-0">$1234</h6>
-                    </div>
-                </div>
-            </div>
+
+
         </div>
     </div>
-    <!-- Sale & Revenue End -->
+
+    <!--ssss-->
     <!-- Sales Chart Start -->
-    
     <!-- Sales Chart End -->
     <!-- Recent Sales Start -->
-   
     <!-- Recent Sales End -->
     <!-- Widgets Start -->
-    
     <!-- Widgets End -->
- 
+
 </div>
