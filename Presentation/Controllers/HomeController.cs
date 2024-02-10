@@ -22,8 +22,14 @@ namespace Presentation.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var user = _userInformationService.GetUserInformation();
-            return View(user);
+            
+           
+            
+                var user = _userInformationService.GetUserInformation();
+                return View(user);
+            
+            
+           
         }
 
         [HttpPost, ValidateAntiForgeryToken]

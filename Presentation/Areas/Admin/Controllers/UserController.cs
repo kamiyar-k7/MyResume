@@ -1,5 +1,7 @@
 ﻿using Application.DTOs;
+using Application.DTOs.AdminSide;
 using Application.Services.Intefaces;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
@@ -16,7 +18,7 @@ namespace Presentation.Areas.Admin.Controllers
         #endregion
         public IActionResult Details()
         {
-            var user = _userInformationService.GetUserInformation();
+            var user = _userInformationService.GetUserInformationAdminSide();
             return View(user);
         }
 
@@ -29,20 +31,17 @@ namespace Presentation.Areas.Admin.Controllers
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditUser(ShowAllDto showAllDto, CancellationToken cancellationToken)
+        public async Task<IActionResult> EditUser(AdminSideUserDto model, CancellationToken cancellationToken)
         {
 
-            var res = await _userInformationService.EditUserDto(showAllDto, cancellationToken);
+            var res = await _userInformationService.EditUserDto(model, cancellationToken);
             if (res)
             {
                 
                 return RedirectToAction(nameof(Details));
             }
 
-
-
-            return View(showAllDto);
-
+            return View(model);
 
         }
 
@@ -50,6 +49,6 @@ namespace Presentation.Areas.Admin.Controllers
         #endregion
 
 
-
+       
     }
 }

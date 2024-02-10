@@ -1,4 +1,5 @@
 ﻿using Application.DTOs;
+using Application.DTOs.AdminSide;
 using Domain.Entities._1Information;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,9 @@ namespace Application.Services.Intefaces
         Task<bool> LogIn(AdminLoginDto model);
 
         #region Admin side
-        Task<ShowAllDto> FillUserDto(int id, CancellationToken cancellation);
-        Task<bool> EditUserDto(ShowAllDto model, CancellationToken cancellation);
+        AdminSideUserDto GetUserInformationAdminSide();
+        Task<AdminSideUserDto> FillUserDto(int id, CancellationToken cancellation);
+        Task<bool> EditUserDto(AdminSideUserDto model, CancellationToken cancellation);
    
         #endregion
     }

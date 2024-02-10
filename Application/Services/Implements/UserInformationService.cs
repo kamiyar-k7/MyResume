@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.NAmeGenerator;
+using Application.DTOs.AdminSide;
 
 namespace Application.Services.Implements
 {
@@ -74,7 +75,32 @@ namespace Application.Services.Implements
 
 
         #region Admin Side
-        public async Task<ShowAllDto> FillUserDto(int id, CancellationToken cancellation)
+
+        #region Get User Information
+        public  AdminSideUserDto GetUserInformationAdminSide()
+        {
+            
+            var user = _UserInformationRepository.GetUserInformationAdminSide();
+            if(user == null) { return null;}
+
+            AdminSideUserDto userDto = new AdminSideUserDto()
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Password = user.Password,
+                TitleDescription = user.TitleDescription,
+                Description = user.Description,
+                Email = user.Email,
+                MobilePhone = user.MobilePhone,
+                Location = user.Location,
+                PicName = user.Picture,
+            };
+            return userDto;
+
+        }
+        #endregion
+
+        public async Task<AdminSideUserDto> FillUserDto(int id, CancellationToken cancellation)
         {
             #region Get User By Id
             var user = await _UserInformationRepository.GetUserById(id);
@@ -82,10 +108,11 @@ namespace Application.Services.Implements
             #endregion
 
             #region Fill Dto
-            ShowAllDto model = new ShowAllDto()
+            AdminSideUserDto model = new AdminSideUserDto()
             {
                 Id = id,
                 UserName = user.UserName,
+                Password = user.Password,
                 TitleDescription = user.TitleDescription,
                 Description = user.Description,
                 Location = user.Location,
@@ -97,7 +124,7 @@ namespace Application.Services.Implements
             #endregion
             return model;
         }
-        public async Task<bool> EditUserDto(ShowAllDto model, CancellationToken cancellation)
+        public async Task<bool> EditUserDto(AdminSideUserDto model, CancellationToken cancellation)
         {
             #region Get User By Id
             var User = await _UserInformationRepository.GetUserById(model.Id);
@@ -107,12 +134,13 @@ namespace Application.Services.Implements
             #region Update
 
             User.UserName = model.UserName;
+            User.Password = model.Password;
             User.TitleDescription = model.TitleDescription;
             User.Description = model.Description;
             User.Email = model.Email;
             User.Location = model.Location;
             User.MobilePhone = model.MobilePhone;
-            // User.IsAdmin = true;
+             User.IsAdmin = true;
 
             // save new image 
 

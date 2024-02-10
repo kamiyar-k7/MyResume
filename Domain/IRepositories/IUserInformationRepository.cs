@@ -11,6 +11,7 @@ namespace Domain.IRepositories
     {
         #region General
         UserInformation GetUserInformation();
+        UserInformation? GetUserInformationAdminSide();
          Task<UserInformation?> GetUserById(int id);
         Task<bool?> CheckAdmin(UserInformation userInformation);
         void Update(UserInformation userInformation);

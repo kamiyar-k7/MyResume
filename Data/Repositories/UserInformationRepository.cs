@@ -22,16 +22,33 @@ namespace Data.Repositories
 
         #region General
 
-        public UserInformation? GetUserInformation()
-        {
-            return _resumeDbContext.Information.FirstOrDefault();
+        public UserInformation GetUserInformation()
+       
+            {
+
+            var information = _resumeDbContext.Information
+                .Select(x => new UserInformation
+                {
+                    Id = x.Id,
+                    UserName = x.UserName,
+                    TitleDescription = x.TitleDescription,
+                    Description = x.Description,
+                    Email = x.Email,
+                    MobilePhone = x.MobilePhone,
+                    Location = x.Location,
+                    Picture = x.Picture
+                })
+                .FirstOrDefault();
+
+            return information;
+
         }
 
         #region Login 
 
         public async Task<bool?> CheckAdmin(UserInformation userInformation)
         {
-           var admin =  await _resumeDbContext.Information.FirstOrDefaultAsync(x => x.Id == userInformation.Id && x.Password == userInformation.Password);
+            var admin = await _resumeDbContext.Information.FirstOrDefaultAsync(x => x.Id == userInformation.Id && x.Password == userInformation.Password);
             if (admin == null) { return false; }
             return true;
 
@@ -41,7 +58,7 @@ namespace Data.Repositories
 
         public void Update(UserInformation userInformation)
         {
-             _resumeDbContext.Information.Update(userInformation);
+            _resumeDbContext.Information.Update(userInformation);
         }
         public async Task Save()
         {
@@ -50,6 +67,15 @@ namespace Data.Repositories
         #endregion
 
         #region Admin Side
+        public UserInformation? GetUserInformationAdminSide()
+
+        {
+
+           return  _resumeDbContext.Information.FirstOrDefault();
+
+            
+
+        }
         public async Task<UserInformation?> GetUserById(int id)
         {
             return await _resumeDbContext.Information.FindAsync(id);

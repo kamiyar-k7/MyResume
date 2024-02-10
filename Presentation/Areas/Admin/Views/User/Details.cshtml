@@ -1,4 +1,4 @@
-﻿@model Application.DTOs.ShowAllDto;
+﻿@model Application.DTOs.AdminSide.AdminSideUserDto;
 
 <section class="content">
 
@@ -33,6 +33,10 @@
                     <div class="mb-3">
                         <label for="exampleInputUserName" class="form-label">Username</label>
                         <input type="text" placeholder="@Model.UserName" class="form-control" id="exampleInputUserName" aria-describedby="userNameHelp" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputUserName" class="form-label">Password</label>
+                        <input type="text" placeholder="@Model.Password" class="form-control" id="exampleInputUserName" aria-describedby="userNameHelp" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputTitleDescription" class="form-label">Title Description</label>

@@ -5,14 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.DTOs
+namespace Application.DTOs.AdminSide
 {
-    public class ShowAllDto
+    public class AdminSideUserDto
     {
-        #region Information
         public int Id { get; set; }
         public string UserName { get; set; }
-       
+        public string Password { get; set; }
         public string TitleDescription { get; set; }
         public string Description { get; set; }
         public string Email { get; set; }
@@ -20,23 +19,5 @@ namespace Application.DTOs
         public string Location { get; set; }
         public string? PicName { get; set; }
         public IFormFile? pictureFile { get; set; }
-        #endregion
-
-        
-
-        #region Contacts
-    
-
-        public ContactDtos ContactDtos { get; set; }
-        #endregion
-
-    }
-    public class ContactDtos
-    {
-        public int SenderId { get; set; }
-        public string SenderName { get; set; }
-        public string SenderEmail { get; set; }
-        public string Subject { get; set; }
-        public string Message { get; set; }
     }
 }

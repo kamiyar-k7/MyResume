@@ -1,4 +1,4 @@
-﻿@model Application.DTOs.ShowAllDto;
+﻿@model Application.DTOs.AdminSide.AdminSideUserDto;
 
 <div class="content">
 
@@ -26,6 +26,10 @@
                         <div class="mb-3">
                             <label for="exampleInputUserName" class="form-label">Username</label>
                             <input type="text" asp-for="@Model.UserName" class="form-control" id="exampleInputUserName" aria-describedby="userNameHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputUserName" class="form-label">Username</label>
+                            <input type="text" asp-for="@Model.Password" class="form-control" id="exampleInputUserName" aria-describedby="userNameHelp" >
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputTitleDescription" class="form-label">Title Description</label>

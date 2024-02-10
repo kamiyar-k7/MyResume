@@ -1,4 +1,5 @@
 ﻿using Application.Services.Intefaces;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Areas.Admin.Controllers
@@ -19,5 +20,14 @@ namespace Presentation.Areas.Admin.Controllers
            var info = _userInformationService.GetUserInformation();
             return View(info);
         }
+
+        #region LogOut
+
+        public async Task<IActionResult> LogOut()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        #endregion
     }
 }
