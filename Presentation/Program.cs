@@ -51,6 +51,12 @@ builder.Services.AddAuthentication(options =>
          });
 #endregion
 
+#region WEB APP
+
+builder.Services.AddProgressiveWebApp();
+#endregion
+
+
 var app = builder.Build();
 
 
@@ -69,7 +75,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication(); 
+app.UseAuthentication();
 app.UseAuthorization();
 
 //app.MapControllerRoute(

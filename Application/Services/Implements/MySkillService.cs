@@ -67,7 +67,7 @@ namespace Application.Services.Implements
 
             MySkillDto myskills = new MySkillDto()
             {
-                SkillId = SkillId,
+                SkillId = skill.SkillId,
                 SkillName = skill.SkillName,
                 SkillValue = skill.SkillValue,
 
