@@ -6,14 +6,14 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/images/WebApp/K-logo-192.png",
+      "src": "/images/WebApp/weblogo192.png",
       "sizes": "192x192",
       "type": "image/png",
       "form_factor": "wide"
 
     },
     {
-      "src": "/images/WebApp/K-logo-512.png",
+      "src": "/images/WebApp/weblogo512.png",
       "sizes": "512x512",
       "type": "image/png",
       "form_factor": "wide"

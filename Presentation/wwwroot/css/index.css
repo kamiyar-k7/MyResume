@@ -67,7 +67,7 @@ body{
 #header{
     background:#000000;
     height: 100vh;
-    width: 100%;;
+    width: 100%;
     overflow: hidden;
     animation: scale 1.5s ease;
     position:relative;
@@ -204,25 +204,24 @@ body{
     opacity: .8;
     z-index: 2;
     cursor: pointer;
-    transition: all .4s ease;
+    transition: all 1s ease;
 }
 .logo img:hover{
     opacity: 1;
-    transform: rotate(-45deg);
+    transform: rotate(360deg);
 }
 #navigation-bar img{
     height: 80px;
     position: absolute;
-    ;
     top: 15%;
     left: 2.5%;
     opacity: .8;
-    transition: all .4s ease;
+    transition: all 1s ease;
 }
-#navigation-bar img:hover{
-    opacity: 1;
-    transform:rotate(-45deg);
-}
+    #navigation-bar img:hover {
+        opacity: 1;
+        transform: rotate(360deg);
+    }
 .header-image img{
     height: 100vh;
     float: right;
@@ -313,8 +312,6 @@ body{
 .social-media{
     color: white;
     width:  21px;
-    ;
-    opacity: .6;
     margin: 8px;
     transition: all .4s ease;
 }
