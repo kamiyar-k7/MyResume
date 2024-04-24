@@ -9,6 +9,8 @@ public class MainViewModel
     public InformationViewModel Information { get; set; }
     public List<ServiceViewModel> ServiceViewModel { get; set; }
     public List<SkillViewModel> skillViewModels { get; set; }
+    public List<BlogViewModel> blogViewModels { get; set; }
+    public List<ProjectViewModel> projectViewModels { get; set; }
     public ContactViewMdodel ContactViewMdodel { get; set; }
 }
 
@@ -66,7 +68,7 @@ public record BlogViewModel
 
 }
 
-public record portfolioViewModel
+public record ProjectViewModel
 {
     public string Title { get; set; }
     public string Description { get; set; }

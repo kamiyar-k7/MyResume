@@ -3,6 +3,7 @@ using Application.Services.Intefaces;
 using Data.Dbcontext;
 using Data.Repositories;
 using Domain.IRepositories;
+using Domain.IRepositoriesp;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,10 @@ builder.Services.AddScoped<IMyServicesService, MyServicesService>();
 // my skill
 builder.Services.AddScoped<IMySkillRepository, MySkillRepository>();
 builder.Services.AddScoped<IMySkillService, MySkillService>();
+
+//Blog
+builder.Services.AddScoped<IBlogRepository , BlogRepository>();
+builder.Services.AddScoped<IBlogServic, BlogService>();
 
 //contact 
 builder.Services.AddScoped<IContactRepository, ContactRepository>();

@@ -11,26 +11,25 @@ namespace Presentation.Controllers
     {
         
         #region Ctor
-    private readonly IHomeService _homeService;
+
+        private readonly IHomeService _homeService;
         private readonly IContactService _contactService;
+
         public HomeController(IHomeService homeService , IContactService contactService)
         {
            
             _homeService = homeService;
             _contactService = contactService;
         }
+
         #endregion
 
         [HttpGet]
         public async Task<IActionResult> Index(CancellationToken cancellation)
         {
 
-
-
             var model = await _homeService.HomeIndex(cancellation);
              return View(model);
-            
-            
            
         }
 

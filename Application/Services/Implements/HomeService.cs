@@ -14,17 +14,22 @@ public class HomeService : IHomeService
     private readonly IUserInformationService _User;
     private readonly IMyServicesService _Myservice;
     private readonly IMySkillService _Myskill;
-    private readonly IContactService _ContactService;
+    private readonly IBlogServic _blog;
+    private readonly IProjectService _project;
+
     public HomeService(IUserInformationService userInformationService ,
         IMyServicesService myserviceService ,
-        IMySkillService mySkillService , 
-        IContactService contactService)
+        IMySkillService mySkillService ,
+        IBlogServic blogServic ,
+        IProjectService projectService
+       )
     {
             
         _User = userInformationService;
         _Myservice = myserviceService;
         _Myskill = mySkillService;
-         _ContactService = contactService; 
+        _blog = blogServic;
+        _project = projectService;
     }
 
 
@@ -33,13 +38,16 @@ public class HomeService : IHomeService
         var info =  _User.GetUserInformation();
         var myservices = await _Myservice.GetMyservicesAsync(cancellationToken);
         var skills = await _Myskill.GetSkillsAsync(cancellationToken);
+        var blog = await _blog.ListOfBlogs();
+        var project = await _project.ListOfProjects();
 
         MainViewModel model = new MainViewModel()
         {
             Information = info,
             ServiceViewModel = myservices ,
             skillViewModels = skills,
-
+            blogViewModels = blog,
+           projectViewModels = project,
         };
 
         return model;
