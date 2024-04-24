@@ -1,17 +1,13 @@
 ﻿using Application.DTOs;
 using Application.NAmeGenerator;
 using Application.Services.Intefaces;
+using Application.ViewModel;
 using Domain.Entities._1Information.Myservices;
-using Domain.Entities._3Contact;
 using Domain.IRepositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Application.Services.Implements
-{
+
+namespace Application.Services.Implements;
+
     public class MyServicesService : IMyServicesService
     {
         #region ctor
@@ -23,24 +19,31 @@ namespace Application.Services.Implements
         #endregion
 
         #region General 
-        public async Task<List<MyServiceDto>> GetMyservicesAsync(CancellationToken cancellationToken)
+        public async Task<List<ServiceViewModel>> GetMyservicesAsync(CancellationToken cancellationToken)
         {
             var services = await _MyserviceRepository.GetMyservicesAsync(cancellationToken);
 
-            List<MyServiceDto> model = new List<MyServiceDto>();
+            List<ServiceViewModel> model = new List<ServiceViewModel>();
             foreach (var service in services)
             {
-                model.Add(new MyServiceDto
-                {
-                    ServiceId = service.ServiceId,
-                    ServiceName = service.ServiceName,
-                    ServiceDescription = service.ServiceDescription,
-                    ServicePicture = service.ServicePicture,
-                });
+    
+                 ServiceViewModel childmodel = new ServiceViewModel()
+                 {
+                           ServiceId = service.ServiceId,
+                           ServiceName = service.ServiceName,
+                          ServiceDescription = service.ServiceDescription,
+                          ServicePicture = service.ServicePicture,
+
+                  };
+
+                 model.Add(childmodel);
             }
+
             return model;
         }
         #endregion
+
+
 
         #region Admin Side
         public async Task<MyServiceDto> FillMyServiceDto(int ServiceId)
@@ -102,7 +105,6 @@ namespace Application.Services.Implements
 
             return true;
         }
-        #endregion
 
         #region Add Service
         public async Task AddService(MyServiceDto model)
@@ -152,7 +154,10 @@ namespace Application.Services.Implements
             return true;
         }
         #endregion
+        #endregion
+
+
 
 
     }
-}
+

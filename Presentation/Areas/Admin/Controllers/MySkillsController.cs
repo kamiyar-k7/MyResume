@@ -21,7 +21,7 @@ namespace Presentation.Areas.Admin.Controllers
         #region List of skills 
         public async Task<IActionResult> ListOfSkills(CancellationToken cancellation)
         {
-            var skills = await _Skills.MySkillDtosAsync(cancellation);
+            var skills = await _Skills.GetSkillsAsync(cancellation);
             return View(skills);
         }
         #endregion

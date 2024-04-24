@@ -1,8 +1,10 @@
-﻿@model Application.DTOs.ShowAllDto;
+﻿@model Application.ViewModel.MainViewModel;
 
 @{
     Layout = "_Layout";
     ViewData["Title"] = "کامیار خدری / Kamyar Khedri ";
+    var info = Model.Information;
+   
 }
 
 <!--contains all the div-->
@@ -12,15 +14,12 @@
     <!--mouse  follower-->
     <!--loader-->
     <div id="loader">
-        <span class="color">@Model.UserName</span>
+        <span class="color">@info.UserName</span>
     </div>
     <!--loader-end-->
     <!--link-screen-->
-    <div id="breaker">
-    </div>
-    <div id="breaker-two">
-    </div>
     <!--link-screen-->
+
     <!--Main-Section-->
     <!--Navigator-fullscreen-->
     <div id="navigation-content">
@@ -35,8 +34,8 @@
         <div class="navigation-links">
             <a href="#" data-text="HOME" id="home-link">HOME</a>
             <a href="#" data-text="ABOUT" id="about-link">ABOUT</a>
-          @*   <a href="#" data-text="BLOG" id="blog-link">BLOG</a>
-            <a href="#" data-text="PORTFOLIO" id="portfolio-link">PORTFOLIO</a> *@
+            <a href="#" data-text="BLOG" id="blog-link">BLOG</a>
+            <a href="#" data-text="PORTFOLIO" id="portfolio-link">PORTFOLIO</a> 
             <a href="#" data-text="CONTACT" id="contact-link">CONTACT</a>
         </div>
     </div>
@@ -67,7 +66,7 @@
         <!--Social Media Links end-->
         <div class="header-content">
             <div class="header-content-box">
-                <div class="firstline"><span class="color">@Model.UserName</span></div>
+                <div class="firstline"><span class="color">@info.UserName</span></div>
                 <div class="secondline">
                     I'm a
                     <span class="txt-rotate color" data-period="1200" data-rotate='[ " Web Developer.", "C# Programmer.", " Freelancer." ]'></span>
@@ -78,7 +77,7 @@
         </div>
         <!--header image-->
         <div class="header-image">
-            <img src="images/UserAvatar/@Model.PicName" alt="logo">
+            <img src="images/UserAvatar/@info.PicName" alt="logo">
         </div>
         <!--header image end-->
     </div>
@@ -128,23 +127,25 @@
                     <!--about description-->
                     <span class="about-first-line">
                         I'm creative
-                        <span class="color">@Model.TitleDescription</span>
-                        based in @Model.Location
+                        <span class="color">@info.TitleDescription</span>
+                        based in @info.Location
                     </span>
                     <br>
-                    <span class="about-second-line"> @Model.Description</span>
+                    <span class="about-second-line"> @info.Description</span>
                     <div class="cv">
                         <a href="#"><button>Download <span class="colors">CV</span></button>(coming soon)</a>
                     </div>
                 </div>
                 <!--about picture-->
                 <div class="about-img">
-                    <img src="~/images/UserAvatar/@Model.PicName" alt="Your Image">
+                    <img src="~/images/UserAvatar/@info.PicName" alt="Your Image">
                 </div>
             </div>
 
         </div>
+
         <!--services start-->
+
         <div id="services">
             <div class="color-changer">
                 <div class="color-panel">
@@ -179,35 +180,215 @@
             <!--services header-->
             <div class="services-heading wow">
                 <span class="color">My</span> Services
+
             </div>
             <!--services header end-->
-            <!--services content-->
-            @await Component.InvokeAsync("MyServices")
 
+            <!--services content-->
+
+            <div class="services-content">
+
+
+                @foreach (var item in Model.ServiceViewModel)
+                {
+                    <div class="service-one service wow">
+                        <div class="service-img">
+                            @if (string.IsNullOrEmpty(item.ServicePicture))
+                            {
+                                <img id="preview" src="~/images/coding.png" alt="Image Preview" style="max-width: 100%; max-height: 300px; ">
+                            }
+                            else
+                            {
+                                <img id="preview" src="~/images/ServiceImages/@item.ServicePicture" alt="Image Preview" style="max-width: 100%; max-height: 300px; ">
+                            }
+                        </div>
+                        <div class="service-description">
+                            <h2>@item.ServiceName</h2>
+                            <p>@item.ServiceDescription</p>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
         </div>
         <!--services content end-->
         <!--services end-->
+
+
         <div id="skills">
             <div class="skills-header">
                 My <span class="color"> Skills</span>
             </div>
-            @await Component.InvokeAsync("MySkill")
+            <div class="skills-content " style="text-align: center;">
+                @foreach (var item in Model.skillViewModels)
+                {
+                    <div class="skill-html skill">
+
+                        <div class="skill-text">
+                            <div class="html">
+                                @item.SkillName
+                            </div>
+                        </div>
+                        <div class="html-prog wow prog">
+                            <div class="html-progress wow" style="width:@item.SkillValue%">@item.SkillValue%</div>
+                        </div>
+
+
+
+                    </div>
+                }
+
+            </div>
         </div>
         <!--copyright-section You Can Remove After Downloading-->
         <div class="footer">
             <div class="footer-text">
-                <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> @Model.UserName
+                <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> @info.UserName
             </div>
         </div>
         <!--copyright-section-->
     </div>
     <!--about end-->
-    <!--portfolio-->
-   
-    <!--portfolio end-->
+  
     <!--blog-->
-    
+    <div id="blog">
+
+        <div class="color-changer">
+            <div class="color-panel">
+                <img src="images/gear.png" alt="">
+            </div>
+            <div class="color-selector">
+                <div class="heading">Custom Colors</div>
+                <div class="colors">
+                    <ul>
+                        <li>
+                            <a href="#0" class="color-red " title="color-red"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-purple" title="color-purple"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-malt" title="color-malt"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-green" title="color-green"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-blue" title="color-blue"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-orange" title="color-orange"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="blog-header">
+            Blogs
+            <span class="header-caption"> My Latest <span class="color"> blog posts.</span></span>
+        </div>
+        <div class="blog-content">
+            @foreach (var blog in Model.blogViewModels)
+            {
+                <div class="blogs">
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/BlogImages/@blog.PictureUrl" alt="blog-one">
+                            <div class="blog-date">@blog.DateOnly</div>
+                        </div>
+                        <div class="blog-text">
+                            <h3>@blog.Title</h3>
+                            <p>
+                             @blog.Description
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            }
+   
+          
+        </div>
+        <!--copyright-section You Can Remove After Downloading-->
+        <div class="footer">
+            <div class="footer-text">
+                <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> @info.UserName
+            </div>
+        </div>
+        <!--copyright-section-->
+    </div>
     <!--blog end-->
+
+    <!--portfolio-->
+    <div id="portfolio">
+
+        <div class="color-changer">
+            <div class="color-panel">
+                <img src="images/gear.png" alt="">
+            </div>
+            <div class="color-selector">
+                <div class="heading">Custom Colors</div>
+                <div class="colors">
+                    <ul>
+                        <li>
+                            <a href="#0" class="color-red " title="color-red"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-purple" title="color-purple"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-malt" title="color-malt"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-green" title="color-green"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-blue" title="color-blue"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-orange" title="color-orange"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-header">
+            <span class="color"> My </span> Portfolio
+            <span class="header-caption"> Some Of My <span class="color"> Works</span></span>
+        </div>
+        @foreach (var project in Model.projectViewModels)
+        {
+            <div id="portfolio-content">
+                <div class="portfolio portfolio-first">
+                    <div class="portfolio-image">
+                        <img src="images/ProjectImages/@project.PictureUrl" alt="none">
+                    </div>
+                    <div class="portfolio-text">
+                        <h2>@project.Title</h2>
+                        <p>
+                         @project.Description
+                        </p>
+                        <div class="button"><a href="@project.ProjectUrl"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
+                    </div>
+                </div>
+
+            </div>
+        }
+     
+     
+            <div class="footer">
+            <div class="footer-text">
+                <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> @info.UserName
+            </div>
+           </div>
+        <!--copyright-section-->
+    </div>
+    <!--portfolio end-->
+
+
     <!--contact-->
     <div id="contact">
         <div class="color-changer">
@@ -247,8 +428,31 @@
         <div class="contact-content">
             <!--Contact form-->
             <div class="contact-form">
-                <partial name="_contactPartial" model="Model.ContactDtos"> 
-              @*  @await Component.InvokeAsync("Contact");  *@
+
+                <form action="/Home/Index?scrollToContact=true" id="myForm" method="post">
+                    <div class="input-line">
+                        <input id="name" type="text" placeholder="Name" class="input-name"  asp-for="ContactViewMdodel.SenderName" >
+                        <input id="email" type="email" placeholder="Email" class="input-name" asp-for="ContactViewMdodel.SenderEmail" >
+                    </div>
+                    <input type="text" id="subject" placeholder="Subject" class="input-subject"  asp-for="ContactViewMdodel.Subject" >
+                    <textarea id="body" class="input-textarea" placeholder="Message"  asp-for="ContactViewMdodel.Message" ></textarea>
+                    <button type="submit" id="submit">Submit</button>
+                    @Html.AntiForgeryToken() 
+                </form>
+
+                @if (TempData.ContainsKey("SuccessMessage"))
+                {
+                    <div class="alert alert-success">
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+                @if (TempData.ContainsKey("ErrorMessage"))
+                {
+                    <div class="alert alert-danger">
+                        @TempData["ErrorMessage"]
+                    </div>
+                }
+
 
             </div>
 
@@ -263,21 +467,21 @@
                         <i class="social-media fa-solid fa-user"></i>
                         <div class="contact-info-icon-text">
                             <h6>Name</h6>
-                            <p>@Model.UserName</p>
+                            <p>@info.UserName</p>
                         </div>
                     </div>
                     <div class="contect-info-content-line">
                         <i class="social-media fa-solid fa-location-dot"></i>
                         <div class="contact-info-icon-text">
                             <h6>Location</h6>
-                            <p>@Model.Location</p>
+                            <p>@info.Location</p>
                         </div>
                     </div>
                     <div class="contect-info-content-line">
                         <i class="social-media fa-solid fa-phone"></i>
                         <div class="contact-info-icon-text">
                             <h6>Call</h6>
-                            <p>+98 @Model.MobilePhone</p>
+                            <p>+98 @info.MobilePhone</p>
                         </div>
                     </div>
 
@@ -285,7 +489,7 @@
                         <i class="social-media fa-solid fa-envelope"></i>
                         <div class="contact-info-icon-text">
                             <h6>Email</h6>
-                            <p>@Model.Email</p>
+                            <p>@info.Email</p>
                         </div>
                     </div>
                 </div>
@@ -295,7 +499,7 @@
         <!--copyright-section You Can Remove After Downloading-->
         <div class="footer">
             <div class="footer-text">
-                <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> @Model.UserName
+                <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> @info.UserName
             </div>
         </div>
         <!--copyright-section-->
@@ -305,5 +509,19 @@
 </div>
 <!--all the divisions-->
 
+
+<style>
+    .alert-success {
+        color: #155724; /* Green color */
+        background-color: black; /* Light green background */
+        border-color: black; /* Green border */
+    }
+
+    .alert-danger {
+        color: #721c24; /* Red color */
+        background-color: black; /* Light red background */
+        border-color: black; /* Red border */
+    }
+</style>
 
 

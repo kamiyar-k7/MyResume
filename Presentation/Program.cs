@@ -3,6 +3,7 @@ using Application.Services.Intefaces;
 using Data.Dbcontext;
 using Data.Repositories;
 using Domain.IRepositories;
+using Domain.IRepositoriesp;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// home 
+builder.Services.AddScoped<IHomeService, HomeService>();
 
 // user information
 builder.Services.AddScoped<IUserInformationRepository, UserInformationRepository>();
@@ -22,6 +26,10 @@ builder.Services.AddScoped<IMyServicesService, MyServicesService>();
 // my skill
 builder.Services.AddScoped<IMySkillRepository, MySkillRepository>();
 builder.Services.AddScoped<IMySkillService, MySkillService>();
+
+//Blog
+builder.Services.AddScoped<IBlogRepository , BlogRepository>();
+builder.Services.AddScoped<IBlogServic, BlogService>();
 
 //contact 
 builder.Services.AddScoped<IContactRepository, ContactRepository>();
@@ -78,17 +86,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=Index}/{id?}");
 
-//app.UseEndpoints(endpoints =>
-//{
-//    endpoints.MapControllerRoute(
-//      name: "areas",
-//      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-//    );
-//});
 
 
 app.UseEndpoints(endpoints =>

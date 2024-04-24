@@ -1,18 +1,19 @@
 ﻿using Application.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Application.ViewModel;
 
-namespace Application.Services.Intefaces
+
+namespace Application.Services.Intefaces;
+
+public interface IMyServicesService
 {
-    public interface IMyServicesService
-    {
-        Task<List<MyServiceDto>> GetMyservicesAsync(CancellationToken cancellationToken);
-        Task<MyServiceDto> FillMyServiceDto(int ServiceId);
-        Task<bool> UpdateMyService(MyServiceDto model);
-        Task AddService(MyServiceDto model);
-        Task<bool> DeleteMyService(int ServiceId);
-    }
+    Task<List<ServiceViewModel>> GetMyservicesAsync(CancellationToken cancellationToken);
+
+
+    #region Admin
+
+    Task<MyServiceDto> FillMyServiceDto(int ServiceId);
+    Task<bool> UpdateMyService(MyServiceDto model);
+    Task AddService(MyServiceDto model);
+    Task<bool> DeleteMyService(int ServiceId);
+    #endregion
 }

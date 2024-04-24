@@ -1,6 +1,7 @@
-﻿using Application.DTOs;
+﻿
 using Application.DTOs.AdminSide;
 using Application.Services.Intefaces;
+using Application.ViewModel;
 using Domain.Entities._3Contact;
 using Domain.IRepositories;
 
@@ -18,16 +19,16 @@ public class ContactService : IContactService
     #endregion
 
     #region General
-    public async Task AddContactUsToDataBaseAsync(ContactDtos contactDto, CancellationToken cancellationToken)
+    public async Task AddContactUsToDataBaseAsync(ContactViewMdodel contactView, CancellationToken cancellationToken)
     {
 
         Contact contact = new Contact()
         {
-            SenderId = contactDto.SenderId,
-            SenderName = contactDto.SenderName,
-            SenderEmail = contactDto.SenderEmail,
-            Subject = contactDto.Subject,
-            Message = contactDto.Message,
+            SenderId = contactView.SenderId,
+            SenderName = contactView.SenderName,
+            SenderEmail = contactView.SenderEmail,
+            Subject = contactView.Subject,
+            Message = contactView.Message,
             DateTime = DateTime.Now,
 
         };
