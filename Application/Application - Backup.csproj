@@ -7,13 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="DTOs\UserSide\**" />
-    <EmbeddedResource Remove="DTOs\UserSide\**" />
-    <None Remove="DTOs\UserSide\**" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <Folder Include="DTOs\UserSide\" />
   </ItemGroup>
 
 

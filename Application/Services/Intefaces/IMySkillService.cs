@@ -1,26 +1,21 @@
 ﻿using Application.DTOs;
-using Domain.Entities._1Information.Myskills;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Application.ViewModel;
 
-namespace Application.Services.Intefaces
+
+namespace Application.Services.Intefaces;
+
+public interface IMySkillService
 {
-    public interface IMySkillService
-    {
-        #region general
-        Task<List<MySkillDto>> MySkillDtosAsync(CancellationToken cancellationToken);
-        #endregion
+    #region general
+    Task<List<SkillViewModel>> GetSkillsAsync(CancellationToken cancellationToken);
+    #endregion
 
-        #region Admin side
-        Task<MySkillDto> FillSkillDtoAsync(int SkillId);
-        Task<bool> EditSkillDto(MySkillDto model);
-        Task AddSkill(MySkillDto model);
-        Task<bool> DeleteSkill(int id);
-        
-        #endregion
+    #region Admin side
+    Task<MySkillDto> FillSkillDtoAsync(int SkillId);
+    Task<bool> EditSkillDto(MySkillDto model);
+    Task AddSkill(MySkillDto model);
+    Task<bool> DeleteSkill(int id);
+    
+    #endregion
 
-    }
 }
