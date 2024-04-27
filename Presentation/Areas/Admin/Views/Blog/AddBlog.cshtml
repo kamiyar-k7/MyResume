@@ -1,0 +1,81 @@
+﻿@model Application.ViewModel.BlogViewModel;
+
+
+
+<div class="content">
+
+    <!--nav bar-->
+    <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+        <a class="navbar-brand d-flex d-lg-none me-4">
+            <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+        </a>
+        <a href="#" class="sidebar-toggler flex-shrink-0">
+            <i class="fa fa-bars"></i>
+        </a>
+
+    </nav>
+    <!--nav bar end -->
+
+    <div class="container-fluid pt-4 px-4">
+
+        <form asp-area="Admin" asp-controller="Blog" asp-action="AddBlog" method="post" enctype="multipart/form-data">
+            <div class="row g-4">
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h6 class="mb-4">Add  Service</h6>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" asp-for="@Model.Title">
+                            <label for="floatingInput">Service Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Leave a Description here" asp-for="@Model.Description" style="height: 150px;"></textarea>
+                            <label for="floatingTextarea">Description</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Add Blog</button>
+                        <a class="btn btn-primary" asp-area="Admin" asp-controller="Blogs" asp-action="ListOfBlogs" role="button">Return</a>
+
+                    </div>
+                </div>
+
+                <!--picture add-->
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-secondary rounded h-100 p-4">
+
+                        <div id="imagePreview" class="mb-3 text-center">
+
+                            <img id="preview" src="~/images/coding.png" alt="Image Preview" style="max-width: 100%; max-height: 300px; ">
+
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Default file input example</label>
+                            <input class="form-control bg-dark" asp-for="PictureFile" type="file" id="formFile" onchange="previewImage(event)">
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <!--picture add-->
+        </form>
+
+
+    </div>
+</div>
+
+<script>
+    function previewImage(event) {
+        const input = event.target;
+        const preview = document.getElementById('preview');
+        const file = input.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function () {
+            preview.src = reader.result;
+        };
+
+        reader.readAsDataURL(file);
+    }
+</script>

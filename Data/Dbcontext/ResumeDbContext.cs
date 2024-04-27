@@ -4,6 +4,7 @@ using Domain.Entities._1Information.Myskills;
 using Domain.Entities._3Contact;
 using Domain.Entities.Blog;
 using Domain.Entities.Projects;
+using Domain.Entities.Website;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data.Dbcontext;
@@ -21,5 +22,6 @@ public class ResumeDbContext : DbContext
     public DbSet<Blog> blogs { get; set; }
     public DbSet<Project> projects { get; set; }
     public DbSet<Contact> contacts { get; set; }
+    public DbSet<WebLinks> links { get; set; }
 
 }

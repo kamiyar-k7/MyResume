@@ -31,9 +31,17 @@ builder.Services.AddScoped<IMySkillService, MySkillService>();
 builder.Services.AddScoped<IBlogRepository , BlogRepository>();
 builder.Services.AddScoped<IBlogServic, BlogService>();
 
+// project
+builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+builder.Services.AddScoped<IProjectService, ProjectService>();
+
 //contact 
 builder.Services.AddScoped<IContactRepository, ContactRepository>();
 builder.Services.AddScoped<IContactService, ContactService>();
+
+//links 
+builder.Services.AddScoped<IWebLinksRepository , WebLinksRepository>();
+builder.Services.AddScoped<IWebLinksService, WeblinksService>();
 
 #region Dbcontext
 builder.Services.AddDbContext<ResumeDbContext>(

@@ -4,7 +4,7 @@
     Layout = "_Layout";
     ViewData["Title"] = "کامیار خدری / Kamyar Khedri ";
     var info = Model.Information;
-   
+    var links = Model.linksViewModel;
 }
 
 <!--contains all the div-->
@@ -34,8 +34,8 @@
         <div class="navigation-links">
             <a href="#" data-text="HOME" id="home-link">HOME</a>
             <a href="#" data-text="ABOUT" id="about-link">ABOUT</a>
-            <a href="#" data-text="BLOG" id="blog-link">BLOG</a>
-            <a href="#" data-text="PORTFOLIO" id="portfolio-link">PORTFOLIO</a> 
+            <a href="#" data-text="BLOGS" id="blog-link">BLOGS</a>
+            <a href="#" data-text="PROJECTS" id="portfolio-link">PROJECTS</a>
             <a href="#" data-text="CONTACT" id="contact-link">CONTACT</a>
         </div>
     </div>
@@ -57,10 +57,10 @@
         <!--Social Media Links-->
         <div class="social-media social-media-links">
             
-            <a href="https://www.instagram.com/kamyarkhedrikiyarsi"><i class="color social-media fa-brands fa-instagram"></i></a><!--Your instagram homepage link inser in place of "#"-->
-            <a href="https://t.me/KamyarKhedri"><i class="color social-media fa-brands fa-telegram"></i></a>
-            <a href="https://www.linkedin.com/in/kamyarkhedri"><i class="color social-media fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/kamiyar-k7"><i class="color social-media fa-brands fa-github"></i></a>
+            <a href="@links.InstagramUrl"><i class="color social-media fa-brands fa-instagram"></i></a>
+            <a href="@links.TelegramUrl"><i class="color social-media fa-brands fa-telegram"></i></a>
+            <a href="@links.LinkedinUrl"><i class="color social-media fa-brands fa-linkedin"></i></a>
+            <a href="@links.GitHubmUrl"><i class="color social-media fa-brands fa-github"></i></a>
 
         </div>
         <!--Social Media Links end-->
@@ -430,6 +430,7 @@
             <div class="contact-form">
 
                 <form action="/Home/Index?scrollToContact=true" id="myForm" method="post">
+
                     <div class="input-line">
                         <input id="name" type="text" placeholder="Name" class="input-name"  asp-for="ContactViewMdodel.SenderName" >
                         <input id="email" type="email" placeholder="Email" class="input-name" asp-for="ContactViewMdodel.SenderEmail" >
@@ -438,6 +439,7 @@
                     <textarea id="body" class="input-textarea" placeholder="Message"  asp-for="ContactViewMdodel.Message" ></textarea>
                     <button type="submit" id="submit">Submit</button>
                     @Html.AntiForgeryToken() 
+
                 </form>
 
                 @if (TempData.ContainsKey("SuccessMessage"))
