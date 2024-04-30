@@ -36,7 +36,9 @@ namespace Data.Repositories
                     Email = x.Email,
                     MobilePhone = x.MobilePhone,
                     Location = x.Location,
-                    Picture = x.Picture
+                    Picture = x.Picture,
+                    Resume = x.Resume,
+                    
                 })
                 .FirstOrDefault();
 

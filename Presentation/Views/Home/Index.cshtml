@@ -17,8 +17,11 @@
         <span class="color">@info.UserName</span>
     </div>
     <!--loader-end-->
-    <!--link-screen-->
-    <!--link-screen-->
+
+    <div id="breaker">
+    </div>
+    <div id="breaker-two">
+    </div>
 
     <!--Main-Section-->
     <!--Navigator-fullscreen-->
@@ -31,6 +34,7 @@
             <span class="close-first"></span>
             <span class="close-second"></span>
         </div>
+
         <div class="navigation-links">
             <a href="#" data-text="HOME" id="home-link">HOME</a>
             <a href="#" data-text="ABOUT" id="about-link">ABOUT</a>
@@ -132,9 +136,12 @@
                     </span>
                     <br>
                     <span class="about-second-line"> @info.Description</span>
-                    <div class="cv">
-                        <a href="#"><button>Download <span class="colors">CV</span></button>(coming soon)</a>
-                    </div>
+                     <div class="cv">
+                        <form asp-controller="Home" asp-action="DownloadResume" method="post">
+                            <input type="hidden" name="fileName" value="@info.ResumeName" />
+                            <button type="submit">Download <span class="colors">CV</span></button>
+                        </form>
+                    </div> 
                 </div>
                 <!--about picture-->
                 <div class="about-img">

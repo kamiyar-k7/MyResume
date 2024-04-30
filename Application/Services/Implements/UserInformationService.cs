@@ -6,6 +6,7 @@ using Application.NAmeGenerator;
 using Application.DTOs.AdminSide;
 using Application.ViewModel;
 
+
 namespace Application.Services.Implements;
 
 public class UserInformationService : IUserInformationService
@@ -36,7 +37,7 @@ public class UserInformationService : IUserInformationService
             MobilePhone = user.MobilePhone,
             Location = user.Location,
             PicName = user.Picture,
-
+            ResumeName = user.Resume,
 
         };
         return model;
@@ -114,6 +115,7 @@ public class UserInformationService : IUserInformationService
             Email = user.Email,
             MobilePhone = user.MobilePhone,
             PicName = user.Picture,
+            ResumeName = user.Resume,
         };
 
         #endregion
@@ -151,7 +153,30 @@ public class UserInformationService : IUserInformationService
             }
         }
 
+        // save new Resume 
 
+        if (model.ResumeFile != null)
+        {
+
+            if(User.Resume != null)
+            { 
+                    string oldresume = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ResumeFile", User.Resume);
+                    if (File.Exists(oldresume))
+                    {
+                        File.Delete(oldresume);
+                    }
+            }
+
+            //Save New Resume
+            model.ResumeName = NameGenerator.GenerateUniqCode() + Path.GetExtension(model.ResumeFile.FileName);
+
+            string Filepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ResumeFile", model.ResumeName);
+            using (var stream = new FileStream(Filepath, FileMode.Create))
+            {
+                model.ResumeFile.CopyTo(stream);
+            }
+            User.Resume = model.ResumeName;
+        }
 
         #endregion
 

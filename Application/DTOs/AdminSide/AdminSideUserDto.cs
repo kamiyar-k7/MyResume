@@ -15,4 +15,6 @@ public class AdminSideUserDto
     public string Location { get; set; }
     public string? PicName { get; set; }
     public IFormFile? pictureFile { get; set; }
+    public string? ResumeName { get; set; }
+    public IFormFile? ResumeFile  { get; set; }
 }

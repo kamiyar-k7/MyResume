@@ -28,7 +28,7 @@ public record InformationViewModel
     public long MobilePhone { get; set; }
     public string Location { get; set; }
     public string? PicName { get; set; }
-
+    public string ResumeName { get; set; }
 
 }
 

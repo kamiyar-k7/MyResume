@@ -13,8 +13,7 @@ public class UserInformation
     public long MobilePhone { get; set; }
     public string Location { get; set; }
     public string? Picture { get; set; }
-    public bool IsAdmin { get; set; }
-
+    public string? Resume { get; set; }
 
 
 }
