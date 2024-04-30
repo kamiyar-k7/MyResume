@@ -33,4 +33,21 @@ public class WeblinksService : IWebLinksService
 
     }
     #endregion
+
+    #region admin side 
+
+    public async Task Updatelinks(LinksViewModel model)
+    {
+        var links = await _repository.GetWebLinksAsync();
+            
+        links.TelegramUrl = model.TelegramUrl;
+        links.LinkedinUrl = model.LinkedinUrl;
+        links.InstagramUrl = model.InstagramUrl;
+        links.GitHubmUrl = model.GitHubmUrl;
+
+        await _repository.UpdateLinks(links);
+       
+    }
+
+    #endregion
 }

@@ -23,5 +23,13 @@ public class WebLinksRepository : IWebLinksRepository
         return await _dbContext.links.FirstOrDefaultAsync();
     }
 
+
+
+    public async Task UpdateLinks(WebLinks webLinks )
+    {
+        //var links = await _dbContext.links.FindAsync(webLinks.Id);
+        _dbContext.links.Update(webLinks);
+      await  _dbContext.SaveChangesAsync();
+    }
     #endregion
 }

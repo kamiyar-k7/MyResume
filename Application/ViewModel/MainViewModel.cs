@@ -84,6 +84,7 @@ public record ProjectViewModel
 
 public record LinksViewModel
 {
+    public int Id { get; set; }
     public string InstagramUrl { get; set; }
     public string TelegramUrl { get; set; }
     public string LinkedinUrl { get; set; }
