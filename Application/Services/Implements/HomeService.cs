@@ -16,12 +16,14 @@ public class HomeService : IHomeService
     private readonly IMySkillService _Myskill;
     private readonly IBlogServic _blog;
     private readonly IProjectService _project;
+  private readonly IWebLinksService _weblinks;
 
     public HomeService(IUserInformationService userInformationService ,
         IMyServicesService myserviceService ,
         IMySkillService mySkillService ,
         IBlogServic blogServic ,
-        IProjectService projectService
+        IProjectService projectService ,
+        IWebLinksService webLinksService
        )
     {
             
@@ -30,6 +32,7 @@ public class HomeService : IHomeService
         _Myskill = mySkillService;
         _blog = blogServic;
         _project = projectService;
+        _weblinks = webLinksService;
     }
 
 
@@ -40,6 +43,7 @@ public class HomeService : IHomeService
         var skills = await _Myskill.GetSkillsAsync(cancellationToken);
         var blog = await _blog.ListOfBlogs();
         var project = await _project.ListOfProjects();
+        var links = await _weblinks.GetLinks();
 
         MainViewModel model = new MainViewModel()
         {
@@ -48,6 +52,7 @@ public class HomeService : IHomeService
             skillViewModels = skills,
             blogViewModels = blog,
            projectViewModels = project,
+           linksViewModel = links
         };
 
         return model;

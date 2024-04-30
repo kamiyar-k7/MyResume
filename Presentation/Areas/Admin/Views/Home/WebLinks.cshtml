@@ -1,0 +1,57 @@
+﻿@model Application.ViewModel.LinksViewModel;
+
+
+
+<div class="content">
+ 
+
+    <!--ssss-->
+
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div>
+                <div class="bg-secondary rounded h-100 p-4">
+
+                    <h6 class="mb-4">Web Links</h6>
+                    <form asp-area="Admin" asp-controller="Home" asp-action="WebLinks" method="post">
+
+                        <input hidden asp-for="@Model.Id" />
+
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">InstagramUrl</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" asp-for="InstagramUrl">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputPassword2" class="form-label">TelegramUrl</label>
+                            <input type="text" class="form-control" id="exampleInputPassword2" asp-for="TelegramUrl">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputPassword3" class="form-label">LinkedinUrl</label>
+                            <input type="text" class="form-control" id="exampleInputPassword3" asp-for="LinkedinUrl">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword4" class="form-label">GitHubUrl</label>
+                            <input type="text" class="form-control" id="exampleInputPassword4" asp-for="GitHubmUrl">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+
+                    </form>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+  
+
+
+</div>
+           

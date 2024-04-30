@@ -32,6 +32,25 @@ namespace Presentation.Controllers
              return View(model);
            
         }
+        [HttpPost("DownloadResume")]
+        public async Task<IActionResult> DownloadResume(string fileName)
+        {
+            if (fileName == null)
+            {
+                return NotFound();
+            }
+
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ResumeFile", fileName);
+
+            if (!System.IO.File.Exists(filePath))
+            {
+                return NotFound();
+            }
+
+            var fileBytes = System.IO.File.ReadAllBytes(filePath);
+            var mimeType = "application/pdf"; 
+            return File(fileBytes, mimeType, fileName);
+        }
 
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Index( MainViewModel model, CancellationToken cancellation)
@@ -48,9 +67,6 @@ namespace Presentation.Controllers
             TempData["ErrorMessage"] = "Failed to send the message. Please check your input.";
             return RedirectToAction(nameof(Index));
             
-
-
-
         }
     }
 

@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace Application.NAmeGenerator
+namespace Application.NAmeGenerator;
+
+public class NameGenerator
 {
-    public class NameGenerator
+    public static string GenerateUniqCode()
     {
-        public static string GenerateUniqCode()
-        {
-            return Guid.NewGuid().ToString().Replace("-", "");
-        }
+        return Guid.NewGuid().ToString().Replace("-", "");
     }
 }

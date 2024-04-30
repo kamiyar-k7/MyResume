@@ -89,8 +89,26 @@
 
                         </div>
                     </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-solid fa-b me-2"></i>My Blogs</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a asp-area="Admin" asp-controller="Blog" asp-action="ListOfBlogs" class="dropdown-item">List</a>
+                            <a asp-area="Admin" asp-controller="Blog" asp-action="AddBlog" class="dropdown-item">Add Blog</a>
+
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-solid fa-p me-2"></i>My Projects</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a asp-area="Admin" asp-controller="Project" asp-action="ListOfProjects" class="dropdown-item">List</a>
+                            <a asp-area="Admin" asp-controller="Project" asp-action="AddProject" class="dropdown-item">Add Project</a>
+
+                        </div>
+                    </div>
 
                     <a asp-area="Admin" asp-controller="Contact" asp-action="ShowMessages" class="nav-item nav-link"><i class="fa-solid fa-message me-2"></i>Contact</a>
+
+                    <a asp-area="Admin" asp-controller="Home" asp-action="WebLinks" class="nav-item nav-link"><i class="fa-solid fa-message me-2"></i>Web LInks</a>
                     
                 </div>
             </nav>
