@@ -26,7 +26,6 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\images\ServiceImages\" />
     <Folder Include="wwwroot\ResumeFile\" />
   </ItemGroup>
 
