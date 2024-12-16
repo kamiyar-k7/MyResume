@@ -25,6 +25,7 @@ public class AccountController : Controller
 
         return View();
     }
+
     [HttpPost, ValidateAntiForgeryToken]
     public async Task<IActionResult> LogIn(AdminLoginDto model)
     {

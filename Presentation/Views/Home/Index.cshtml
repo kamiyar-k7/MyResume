@@ -26,10 +26,10 @@
     <!--Main-Section-->
     <!--Navigator-fullscreen-->
     <div id="navigation-content">
-        <div class="logo" >
+        <div class="logo">
             <img src="images/K-logo.png" alt="logo">
         </div>
-       
+
         <div class="navigation-close">
             <span class="close-first"></span>
             <span class="close-second"></span>
@@ -60,7 +60,7 @@
         <div id="particles"></div>
         <!--Social Media Links-->
         <div class="social-media social-media-links">
-            
+
             <a href="@links.InstagramUrl"><i class="color social-media fa-brands fa-instagram"></i></a>
             <a href="@links.TelegramUrl"><i class="color social-media fa-brands fa-telegram"></i></a>
             <a href="@links.LinkedinUrl"><i class="color social-media fa-brands fa-linkedin"></i></a>
@@ -76,7 +76,7 @@
                     <span class="txt-rotate color" data-period="1200" data-rotate='[ " Web Developer.", "C# Programmer.", " Freelancer." ]'></span>
                     <span class="slash">|</span>
                 </div>
-            
+
             </div>
         </div>
         <!--header image-->
@@ -135,13 +135,13 @@
                         based in @info.Location
                     </span>
                     <br>
-                    <span class="about-second-line"> @info.Description</span>
-                     <div class="cv">
+                    <span class="about-second-line"> @Html.Raw(info.Description.Replace("\n", "<br>").Replace("  ", "&nbsp;&nbsp;"))</span>
+                    <div class="cv">
                         <form asp-controller="Home" asp-action="DownloadResume" method="post">
                             <input type="hidden" name="fileName" value="@info.ResumeName" />
                             <button type="submit">Download <span class="colors">CV</span></button>
                         </form>
-                    </div> 
+                    </div>
                 </div>
                 <!--about picture-->
                 <div class="about-img">
@@ -190,7 +190,6 @@
 
             </div>
             <!--services header end-->
-
             <!--services content-->
 
             <div class="services-content">
@@ -257,7 +256,6 @@
         <!--copyright-section-->
     </div>
     <!--about end-->
-  
     <!--blog-->
     <div id="blog">
 
@@ -309,14 +307,14 @@
                         <div class="blog-text">
                             <h3>@blog.Title</h3>
                             <p>
-                             @blog.Description
+                                @blog.Description
                             </p>
                         </div>
                     </a>
                 </div>
             }
-   
-          
+
+
         </div>
         <!--copyright-section You Can Remove After Downloading-->
         <div class="footer">
@@ -327,7 +325,6 @@
         <!--copyright-section-->
     </div>
     <!--blog end-->
-
     <!--portfolio-->
     <div id="portfolio">
 
@@ -375,27 +372,28 @@
                     </div>
                     <div class="portfolio-text">
                         <h2>@project.Title</h2>
-                        <p>
-                         @project.Description
+
+                        <p class="pre">
+                            @Html.Raw(project.Description.Replace("\n", "<br>").Replace("  ", "&nbsp;&nbsp;"))
                         </p>
+
+
                         <div class="button"><a href="@project.ProjectUrl"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
                     </div>
                 </div>
 
             </div>
         }
-     
-     
-            <div class="footer">
+
+
+        <div class="footer">
             <div class="footer-text">
                 <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> @info.UserName
             </div>
-           </div>
+        </div>
         <!--copyright-section-->
     </div>
     <!--portfolio end-->
-
-
     <!--contact-->
     <div id="contact">
         <div class="color-changer">
@@ -439,13 +437,13 @@
                 <form action="/Home/Index?scrollToContact=true" id="myForm" method="post">
 
                     <div class="input-line">
-                        <input id="name" type="text" placeholder="Name" class="input-name"  asp-for="ContactViewMdodel.SenderName" >
-                        <input id="email" type="email" placeholder="Email" class="input-name" asp-for="ContactViewMdodel.SenderEmail" >
+                        <input id="name" type="text" placeholder="Name" class="input-name" asp-for="ContactViewMdodel.SenderName">
+                        <input id="email" type="email" placeholder="Email" class="input-name" asp-for="ContactViewMdodel.SenderEmail">
                     </div>
-                    <input type="text" id="subject" placeholder="Subject" class="input-subject"  asp-for="ContactViewMdodel.Subject" >
-                    <textarea id="body" class="input-textarea" placeholder="Message"  asp-for="ContactViewMdodel.Message" ></textarea>
+                    <input type="text" id="subject" placeholder="Subject" class="input-subject" asp-for="ContactViewMdodel.Subject">
+                    <textarea id="body" class="input-textarea" placeholder="Message" asp-for="ContactViewMdodel.Message"></textarea>
                     <button type="submit" id="submit">Submit</button>
-                    @Html.AntiForgeryToken() 
+                    @Html.AntiForgeryToken()
 
                 </form>
 
@@ -466,8 +464,8 @@
             </div>
 
             <!--Contact form-->
-            <!--Contact information--> 
-            <div class="contact-info"> 
+            <!--Contact information-->
+            <div class="contact-info">
                 <div class="contact-info-header">
                     Contact Info
                 </div>
@@ -520,6 +518,9 @@
 
 
 <style>
+
+ 
+
     .alert-success {
         color: #155724; /* Green color */
         background-color: black; /* Light green background */
